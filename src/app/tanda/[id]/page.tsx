@@ -37,21 +37,34 @@ interface TandaDetail {
   needsPayment: boolean;
 }
 
-export default function TandaDetailPage({ params }: { params: { id: string } }) {
+export default function TandaDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const { payRound } = useTanda();
   const [tanda, setTanda] = useState<TandaDetail | null>(null);
   const [loading, setLoading] = useState(true);
   const [paying, setPaying] = useState(false);
+  const [tandaId, setTandaId] = useState<string | null>(null);
 
   useEffect(() => {
-    fetchTandaDetail();
-  }, [params.id]);
+    const loadParams = async () => {
+      const resolvedParams = await params;
+      setTandaId(resolvedParams.id);
+    };
+    loadParams();
+  }, [params]);
+
+  useEffect(() => {
+    if (tandaId) {
+      fetchTandaDetail();
+    }
+  }, [tandaId]);
 
   const fetchTandaDetail = async () => {
+    if (!tandaId) return;
+    
     try {
       // Mock data - replace with actual API call
       const mockTanda: TandaDetail = {
-        id: parseInt(params.id),
+        id: parseInt(tandaId),
         name: 'Tanda Familia González',
         description: 'Tanda familiar para ahorro navideño',
         monthlyAmount: 1000,
