@@ -1,4 +1,4 @@
-import { ethers, upgrades } from "hardhat";
+import { ethers } from "hardhat";
 
 async function main() {
   console.log("Deploying TandaMX contract...");
@@ -12,24 +12,17 @@ async function main() {
 
   const TandaMX = await ethers.getContractFactory("TandaMX");
   
-  const tandaMX = await upgrades.deployProxy(
-    TandaMX,
-    [GDOLLAR_ADDRESS, CUSD_ADDRESS],
-    { initializer: "initialize", kind: "uups" }
-  );
-
+  const tandaMX = await TandaMX.deploy(GDOLLAR_ADDRESS, CUSD_ADDRESS);
   await tandaMX.waitForDeployment();
   const address = await tandaMX.getAddress();
 
   console.log("TandaMX deployed to:", address);
-  console.log("Implementation:", await upgrades.erc1967.getImplementationAddress(address));
   
   // Save deployment info
   const fs = require("fs");
   const deploymentInfo = {
     network: (await ethers.provider.getNetwork()).name,
-    proxy: address,
-    implementation: await upgrades.erc1967.getImplementationAddress(address),
+    address: address,
     gDollar: GDOLLAR_ADDRESS,
     cUSD: CUSD_ADDRESS,
     deployer: deployer.address,
