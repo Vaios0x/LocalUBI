@@ -45,7 +45,7 @@ export function useTanda() {
         functionName: 'createTanda',
         args: [
           parseUnits(data.amount.toString(), 18),
-          BigInt(data.members),
+          data.members,
           BigInt(data.frequency)
         ],
       });
