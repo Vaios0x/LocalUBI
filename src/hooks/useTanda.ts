@@ -19,15 +19,16 @@ export function useTanda() {
         {
           id: 1,
           name: 'Tanda Familia González',
-          description: 'Tanda familiar para ahorro navideño',
+          creator: address || '0x123...',
           monthlyAmount: 1000,
           maxMembers: 8,
           currentMembers: 6,
           currentRound: 3,
-          totalRounds: 8,
-          startTime: new Date('2024-01-01'),
-          creator: address || '0x123...',
+          isActive: true,
+          isCompleted: false,
           members: ['0x123...', '0x456...', '0x789...'],
+          startTime: new Date('2024-01-01'),
+          nextPayoutDate: new Date('2024-12-01'),
           needsPayment: true,
         }
       ] as Tanda[];
