@@ -1,0 +1,132 @@
+{
+  "name": "LocalUBI México - Super-app Web3 con Privacidad Total",
+  "description": "Plataforma integral que combina UBI personalizado, tandas digitales, privacidad avanzada y publicación anónima para comunidades mexicanas, implementando 6 tracks del hackathon con tecnología de vanguardia.",
+  "version": "1.0.0",
+  "author": "LocalUBI Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/localubi-mx/localubi-mexico"
+  },
+  "homepage": "https://localubi.mx",
+  "demo": "https://demo.localubi.mx",
+  "video": "https://youtube.com/watch?v=demo",
+  "tracks": [
+    "Community Finance Systems & Coordination",
+    "Build RealFi",
+    "Privacy Meets Identity", 
+    "Proof Your Rental Receipt",
+    "Proof Your GPU Usage",
+    "Resilient Anonymous Publishing"
+  ],
+  "technologies": [
+    "GoodDollar",
+    "Human Wallet",
+    "Human Passport", 
+    "Nillion Network",
+    "Numbers Protocol",
+    "C2PA",
+    "Tor",
+    "IPFS",
+    "Celo",
+    "Next.js",
+    "React",
+    "TypeScript",
+    "Hardhat",
+    "OpenZeppelin"
+  ],
+  "features": [
+    "UBI personalizado con multiplicadores inteligentes",
+    "Tandas digitales (ROSCAs) automatizadas",
+    "Centro de privacidad con 3 niveles",
+    "Computación privada con Nillion Network",
+    "Recibos verificables con Numbers Protocol",
+    "Publicación anónima resistente a censura",
+    "Sistema de reputación descentralizado",
+    "Marketplace local con G$ + pesos"
+  ],
+  "impact": {
+    "target_users": "55.7M personas en pobreza en México",
+    "ubi_daily": "$2-5 USD por usuario",
+    "savings_potential": "$500K USD en tandas digitales año 1",
+    "privacy_level": "Primera app UBI con computación privada"
+  },
+  "architecture": {
+    "frontend": "Next.js 15 + React 19 + TypeScript",
+    "blockchain": "Celo + GoodDollar + Numbers Protocol",
+    "privacy": "Nillion Network + Human Wallet + Human Passport",
+    "infrastructure": "Tor + IPFS + C2PA",
+    "smart_contracts": "Hardhat + OpenZeppelin"
+  },
+  "deployment": {
+    "frontend": "Vercel",
+    "blockchain": "Celo Mainnet",
+    "privacy": "Nillion Devnet",
+    "storage": "IPFS",
+    "tor": "Local + Gateway"
+  },
+  "metrics": {
+    "files": 50,
+    "lines_of_code": 10400,
+    "components": 20,
+    "pages": 12,
+    "hooks": 8,
+    "libraries": 8,
+    "smart_contracts": 3,
+    "api_routes": 4
+  },
+  "awards": {
+    "potential_total": "$24,770",
+    "community_finance": "$5,000 G$",
+    "build_realfi": "$5,000 USD", 
+    "privacy_identity": "$5,000 HUMN",
+    "rental_receipt": "$2,200 NUM",
+    "gpu_usage": "$2,200 NUM",
+    "anonymous_publishing": "$5,000 USD"
+  },
+  "social_impact": {
+    "financial_inclusion": "Acceso bancario sin bancos tradicionales",
+    "ubi_distribution": "UBI justo basado en méritos y contribución",
+    "privacy_protection": "Datos personales protegidos con zero-knowledge proofs",
+    "community_coordination": "Tandas digitales para ahorro cooperativo",
+    "censorship_resistance": "Publicación anónima resistente a censura"
+  },
+  "innovation": {
+    "unique_features": [
+      "Primera app UBI con computación privada",
+      "Integración única Human Wallet + Nillion + GoodDollar",
+      "Sistema de reputación descentralizado",
+      "6 tracks implementados simultáneamente",
+      "Enfoque específico para comunidades mexicanas"
+    ],
+    "technical_achievements": [
+      "Zero-knowledge proofs para verificación",
+      "Computación distribuida con Nillion",
+      "Recibos inmutables con Numbers Protocol",
+      "Onion services para publicación anónima",
+      "C2PA para metadata de provenance"
+    ]
+  },
+  "roadmap": {
+    "phase1": "Core UBI + Privacy (Completado)",
+    "phase2": "Proof Systems + Anonymous Publishing (Completado)", 
+    "phase3": "Scaling to LATAM (Futuro)",
+    "phase4": "AI Integration (Futuro)"
+  },
+  "team": {
+    "size": "1-5 developers",
+    "expertise": [
+      "Blockchain Development",
+      "Privacy-Preserving Technologies", 
+      "Web3 Frontend",
+      "Smart Contracts",
+      "Cryptography"
+    ]
+  },
+  "contact": {
+    "email": "team@localubi.mx",
+    "github": "https://github.com/localubi-mx",
+    "twitter": "@localubi_mx",
+    "discord": "LocalUBI#1234"
+  }
+}

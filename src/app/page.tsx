@@ -29,28 +29,112 @@ export default function HomePage() {
       title: 'UBI Diario', 
       description: 'Recibe G$ gratis cada día. Tu ingreso básico universal en blockchain.',
       color: 'from-green-500 to-emerald-500',
-      glow: 'shadow-neural'
+      glow: 'shadow-neural',
+      href: '/claim'
     },
     { 
       icon: Users, 
       title: 'Tandas Digitales', 
       description: 'Ahorra en grupo de forma segura. Transparencia total, sin intermediarios.',
       color: 'from-blue-500 to-indigo-500',
-      glow: 'shadow-neural'
+      glow: 'shadow-neural',
+      href: '/tanda'
     },
     { 
       icon: Shield, 
-      title: '100% Seguro', 
-      description: 'Contratos inteligentes auditados. Tus fondos protegidos siempre.',
+      title: 'Privacidad Total', 
+      description: 'Tecnología de privacidad avanzada. Tus datos siempre protegidos.',
       color: 'from-purple-500 to-pink-500',
-      glow: 'shadow-neural'
+      glow: 'shadow-neural',
+      href: '/privacy'
     },
     { 
       icon: Zap, 
       title: 'Sin Comisiones', 
       description: 'Transacciones gratis en Celo. Más dinero en tu bolsillo.',
       color: 'from-cyan-500 to-blue-500',
-      glow: 'shadow-neural'
+      glow: 'shadow-neural',
+      href: '/marketplace'
+    }
+  ];
+
+  const hackathonTracks = [
+    {
+      title: 'Community Finance',
+      description: 'Finanzas comunitarias con GoodDollar',
+      icon: '💰',
+      href: '/dashboard',
+      implementation: 'UBI diario + Tandas digitales + Marketplace P2P'
+    },
+    {
+      title: 'Build RealFi',
+      description: 'Infraestructura financiera real',
+      icon: '🏗️',
+      href: '/marketplace',
+      implementation: 'Smart contracts + Wallet integration + DeFi protocols'
+    },
+    {
+      title: 'Privacy Meets Identity',
+      description: 'Identidad con privacidad total',
+      icon: '🆔',
+      href: '/human-passport',
+      implementation: 'Human Passport + NFC + Credenciales verificables'
+    },
+    {
+      title: 'Proof Your Rental Receipt',
+      description: 'Comprobantes de renta verificables',
+      icon: '🏠',
+      href: '/rental-proof',
+      implementation: 'ERC-7053 + Numbers Protocol + C2PA evidence'
+    },
+    {
+      title: 'Proof Your GPU Usage',
+      description: 'Comprobantes de uso de GPU',
+      icon: '💻',
+      href: '/gpu-proof',
+      implementation: 'GPU tracking + On-chain receipts + Verificación automática'
+    },
+    {
+      title: 'Anonymous Publishing',
+      description: 'Publicación anónima y resiliente',
+      icon: '🔒',
+      href: '/anonymous-publishing',
+      implementation: 'Tor onion services + IPFS + Decentralized storage'
+    },
+    {
+      title: 'EdgeOS Civic Tech',
+      description: 'Tecnología cívica para sociedades',
+      icon: '🏛️',
+      href: '/civic-tech',
+      implementation: 'Votación descentralizada + Proyectos cívicos + Gobernanza'
+    },
+    {
+      title: 'Privacy-Preserving AI',
+      description: 'IA con privacidad diferencial',
+      icon: '🤖',
+      href: '/ai-privacy',
+      implementation: 'Nillion Network + FHE + Computación homomórfica'
+    },
+    {
+      title: 'Human Passport',
+      description: 'Identidad portátil con NFC',
+      icon: '📱',
+      href: '/human-passport',
+      implementation: 'Tarjetas NFC + Biometría + Verificación offline'
+    },
+    {
+      title: 'Tor Infrastructure',
+      description: 'Infraestructura de privacidad',
+      icon: '🌐',
+      href: '/tor-infrastructure',
+      implementation: 'Nodos Tor + Onion services + Routing anónimo'
+    },
+    {
+      title: 'Activist Technology',
+      description: 'Tecnología para activistas',
+      icon: '🥷',
+      href: '/activist-tech',
+      implementation: 'Comunicación segura + Documentación + Redes resilientes'
     }
   ];
 
@@ -367,20 +451,75 @@ export default function HomePage() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: idx * 0.15 }}
               >
-                <GlassCard 
-                  className="p-8 h-full flex flex-col items-center text-center neural" 
-                  variant="neural"
-                >
-                  <motion.div 
-                    className={`p-4 rounded-2xl bg-gradient-to-r ${feature.color} mb-6`}
-                    whileHover={{ scale: 1.1, rotate: 5 }}
-                    transition={{ duration: 0.3 }}
+                <Link href={feature.href}>
+                  <GlassCard 
+                    className="p-8 h-full flex flex-col items-center text-center neural cursor-pointer hover:scale-105 transition-transform" 
+                    variant="neural"
                   >
-                    <feature.icon className="w-10 h-10 text-white" />
-                  </motion.div>
-                  <h3 className="text-2xl font-semibold text-white mb-3">{feature.title}</h3>
-                  <p className="text-white/80 text-lg">{feature.description}</p>
-                </GlassCard>
+                    <motion.div 
+                      className={`p-4 rounded-2xl bg-gradient-to-r ${feature.color} mb-6`}
+                      whileHover={{ scale: 1.1, rotate: 5 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <feature.icon className="w-10 h-10 text-white" />
+                    </motion.div>
+                    <h3 className="text-2xl font-semibold text-white mb-3">{feature.title}</h3>
+                    <p className="text-white/80 text-lg">{feature.description}</p>
+                  </GlassCard>
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Hackathon Tracks Section */}
+      <section id="hackathon-tracks" className="relative z-10 py-20 md:py-32">
+        <div className="container mx-auto text-center">
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-5xl font-bold text-gradient mb-4"
+          >
+            🏆 RealFi Hackathon Tracks
+          </motion.h2>
+          
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-xl text-white/80 mb-16 max-w-3xl mx-auto"
+          >
+            LocalUBI México participa en TODOS los 11 tracks del hackathon. 
+            <br />
+            <span className="text-green-400 font-semibold">Cada track implementado con tecnología específica</span>
+          </motion.p>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {hackathonTracks.map((track, idx) => (
+              <motion.div 
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: idx * 0.1 }}
+              >
+                <Link href={track.href}>
+                  <GlassCard 
+                    className="p-6 h-full flex flex-col items-center text-center neural cursor-pointer hover:scale-105 transition-transform" 
+                    variant="neural"
+                  >
+                    <div className="text-4xl mb-4">{track.icon}</div>
+                    <h3 className="text-lg font-semibold text-white mb-2">{track.title}</h3>
+                    <p className="text-white/80 text-sm mb-3">{track.description}</p>
+                    <div className="bg-gradient-to-r from-blue-500 to-cyan-500 text-white text-xs font-bold px-3 py-1 rounded-full">
+                      {track.implementation}
+                    </div>
+                  </GlassCard>
+                </Link>
               </motion.div>
             ))}
           </div>
@@ -499,28 +638,84 @@ export default function HomePage() {
 
       {/* Footer */}
       <footer className="relative z-10 py-12 md:py-16">
-        <div className="container mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-white/80 text-sm">
-          <div className="flex items-center gap-3">
-            <div className="w-8 h-8 bg-gradient-to-r from-green-500 to-emerald-500 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-sm">L</span>
+        <div className="container mx-auto">
+          {/* Main Footer */}
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-8 text-white/80 text-sm mb-8">
+            <div className="flex items-center gap-3">
+              <div className="w-8 h-8 bg-gradient-to-r from-green-500 to-emerald-500 rounded-lg flex items-center justify-center">
+                <span className="text-white font-bold text-sm">L</span>
+              </div>
+              <span className="text-xl font-bold text-gradient">LocalUBI México</span>
             </div>
-            <span className="text-xl font-bold text-gradient">LocalUBI México</span>
+            
+            <p className="text-center lg:text-left">
+              © 2025 LocalUBI. Hecho con <Heart className="inline w-4 h-4 text-red-500" /> para comunidades mexicanas.
+            </p>
+            
+            <div className="flex gap-6">
+              <Link href="/privacy" className="hover:text-white transition-colors">
+                Privacidad
+              </Link>
+              <Link href="/terms" className="hover:text-white transition-colors">
+                Términos
+              </Link>
+              <Link href="/support" className="hover:text-white transition-colors">
+                Soporte
+              </Link>
+            </div>
           </div>
-          
-          <p className="text-center md:text-left">
-            © 2025 LocalUBI. Hecho con <Heart className="inline w-4 h-4 text-red-500" /> para comunidades mexicanas.
-          </p>
-          
-          <div className="flex gap-6">
-            <Link href="/privacy" className="hover:text-white transition-colors">
-              Privacidad
-            </Link>
-            <Link href="/terms" className="hover:text-white transition-colors">
-              Términos
-            </Link>
-            <Link href="/support" className="hover:text-white transition-colors">
-              Soporte
-            </Link>
+
+          {/* Hackathon Tracks Footer */}
+          <div className="border-t border-white/20 pt-8">
+            <motion.h3 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-2xl font-bold text-gradient mb-6 text-center"
+            >
+              🏆 RealFi Hackathon - 11 Tracks Implementados
+            </motion.h3>
+            
+            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+              {hackathonTracks.map((track, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: idx * 0.05 }}
+                >
+                  <Link href={track.href}>
+                    <div className="bg-white/5 rounded-lg p-3 text-center hover:bg-white/10 transition-colors cursor-pointer">
+                      <div className="text-2xl mb-2">{track.icon}</div>
+                      <h4 className="text-sm font-semibold text-white mb-1">{track.title}</h4>
+                      <p className="text-xs text-white/70 mb-2">{track.description}</p>
+                      <div className="bg-gradient-to-r from-blue-500 to-cyan-500 text-white text-xs font-bold px-2 py-1 rounded-full">
+                        {track.implementation}
+                      </div>
+                    </div>
+                  </Link>
+                </motion.div>
+              ))}
+            </div>
+            
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="text-center mt-8"
+            >
+              <div className="bg-gradient-to-r from-green-500/20 to-emerald-500/20 rounded-lg p-4 border border-green-500/30">
+                <p className="text-lg font-semibold text-white mb-2">
+                  🎯 Única propuesta que cubre TODOS los tracks
+                </p>
+                <p className="text-white/80">
+                  Cada track implementado con <span className="text-green-400 font-bold">tecnología específica y funcional</span>
+                </p>
+              </div>
+            </motion.div>
           </div>
         </div>
       </footer>

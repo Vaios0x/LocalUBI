@@ -18,7 +18,7 @@ export function Footer() {
       { name: 'Contacto', href: '#' },
     ],
     legal: [
-      { name: 'Privacidad', href: '#' },
+      { name: 'Privacidad', href: '/privacy' },
       { name: 'Términos', href: '#' },
       { name: 'Cookies', href: '#' },
       { name: 'Licencia', href: '#' },
