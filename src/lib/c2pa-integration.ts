@@ -224,12 +224,12 @@ export class C2PAService {
           hash: await this.hashData(photos.map(p => p.name))
         }
       ],
-      ingredients: photos.map((photo, index) => ({
+      ingredients: await Promise.all(photos.map(async (photo, index) => ({
         title: `rental_photo_${index + 1}`,
         format: photo.type,
         hash: await this.hashFile(photo),
         length: photo.size
-      })),
+      }))),
       created_at: new Date().toISOString(),
       modified_at: new Date().toISOString()
     };
