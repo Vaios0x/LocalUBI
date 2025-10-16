@@ -1,0 +1,16 @@
+{
+  "framework": "nextjs",
+  "buildCommand": "npm run build",
+  "devCommand": "npm run dev",
+  "installCommand": "npm install",
+  "functions": {
+    "src/app/api/**/*.ts": {
+      "runtime": "nodejs18.x"
+    }
+  },
+  "env": {
+    "NEXT_PUBLIC_TANDA_ADDRESS": "@tanda-address",
+    "NEXT_PUBLIC_GOODDOLLAR_ADDRESS": "@gooddollar-address",
+    "NEXT_PUBLIC_CUSD_ADDRESS": "@cusd-address"
+  }
+}
