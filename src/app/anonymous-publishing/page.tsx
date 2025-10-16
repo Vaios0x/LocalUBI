@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { FileText, Eye, Shield, Globe, Search, Plus, Lock } from 'lucide-react';
+import { FileText, Eye, Shield, Globe, Search, Plus, Lock, AlertCircle } from 'lucide-react';
 import { getTorService } from '@/lib/tor-integration';
 import { Header } from '@/components/shared/Header';
 import { Footer } from '@/components/shared/Footer';

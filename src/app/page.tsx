@@ -576,7 +576,7 @@ export default function HomePage() {
                     </div>
                   </div>
                   <p className="text-white/90 italic text-lg leading-relaxed">
-                    "{testimonial.content}"
+                    &ldquo;{testimonial.content}&rdquo;
                   </p>
                 </GlassCard>
               </motion.div>
