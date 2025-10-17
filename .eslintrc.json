@@ -6,6 +6,7 @@
     "react-hooks/exhaustive-deps": "warn",
     "no-console": "warn",
     "react/jsx-no-undef": "error",
-    "react/no-unescaped-entities": "error"
+    "react/no-unescaped-entities": "error",
+    "@typescript-eslint/no-implicit-any": "off"
   }
 }

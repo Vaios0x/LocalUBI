@@ -60,10 +60,13 @@ export default function GPUProofPage() {
       // Simular trabajo de GPU
       const duration = Math.random() * 30000 + 10000; // 10-40 segundos
       const interval = setInterval(() => {
-        setCurrentJob((prev: Job | null) => prev ? ({
-          ...prev,
-          gpuHours: prev.gpuHours + 0.1
-        }) : null);
+        setCurrentJob((prev: Job | null) => {
+          if (!prev) return null;
+          return {
+            ...prev,
+            gpuHours: prev.gpuHours + 0.1
+          };
+        });
       }, 1000);
 
       setTimeout(async () => {
