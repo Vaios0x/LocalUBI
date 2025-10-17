@@ -40,20 +40,24 @@ export function Header() {
       <div className="max-w-7xl mx-auto">
         <div className="flex justify-between items-center">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-gradient-to-r from-green-500 to-emerald-500 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-sm">L</span>
-            </div>
-            <span className="text-xl font-bold text-gradient">LocalUBI</span>
+          <Link href="/" className="flex items-center gap-3 text-2xl font-bold text-white group">
+            <motion.div 
+              className="w-10 h-10 bg-gradient-to-r from-green-500 to-emerald-500 rounded-xl flex items-center justify-center"
+              whileHover={{ rotate: 360 }}
+              transition={{ duration: 0.5 }}
+            >
+              <span className="text-white font-bold text-lg">L</span>
+            </motion.div>
+            <span className="text-gradient text-3xl font-extrabold">LocalUBI</span>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden xl:flex items-center gap-3">
+          <nav className="hidden lg:flex items-center gap-6 text-white/80">
             {mainNavigation.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className="text-muted-foreground hover:text-foreground transition-colors text-sm font-medium whitespace-nowrap"
+                className="hover:text-white transition-colors duration-300 hover:scale-105"
               >
                 {item.name}
               </Link>
@@ -61,7 +65,7 @@ export function Header() {
             
             {/* Dropdown para navegación secundaria */}
             <div className="relative group">
-              <button className="text-muted-foreground hover:text-foreground transition-colors text-sm font-medium flex items-center gap-1 whitespace-nowrap">
+              <button className="hover:text-white transition-colors duration-300 hover:scale-105 flex items-center gap-1">
                 Más
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
@@ -87,80 +91,7 @@ export function Header() {
             </div>
           </nav>
 
-          {/* Large Desktop Navigation (lg to xl) */}
-          <nav className="hidden lg:flex xl:hidden items-center gap-2">
-            {mainNavigation.slice(0, 4).map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className="text-muted-foreground hover:text-foreground transition-colors text-sm font-medium whitespace-nowrap"
-              >
-                {item.name}
-              </Link>
-            ))}
-            
-            {/* Dropdown para navegación secundaria */}
-            <div className="relative group">
-              <button className="text-muted-foreground hover:text-foreground transition-colors text-sm font-medium flex items-center gap-1 whitespace-nowrap">
-                Más
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
-              
-              {/* Dropdown Menu */}
-              <div className="absolute top-full left-0 mt-2 w-64 bg-white/95 backdrop-blur-lg border border-white/20 rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-                <div className="p-2">
-                  <div className="grid grid-cols-2 gap-1">
-                    {[...mainNavigation.slice(4), ...secondaryNavigation].map((item) => (
-                      <Link
-                        key={item.name}
-                        href={item.href}
-                        className="px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md transition-colors"
-                      >
-                        {item.name}
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </nav>
-
-          {/* Tablet Navigation (md to lg) */}
-          <nav className="hidden md:flex lg:hidden items-center gap-2">
-            {mainNavigation.slice(0, 4).map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className="text-muted-foreground hover:text-foreground transition-colors text-sm font-medium whitespace-nowrap"
-              >
-                {item.name}
-              </Link>
-            ))}
-            <div className="relative group">
-              <button className="text-muted-foreground hover:text-foreground transition-colors text-sm font-medium whitespace-nowrap">
-                ⋯
-              </button>
-              <div className="absolute top-full left-0 mt-2 w-64 bg-white/95 backdrop-blur-lg border border-white/20 rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-                <div className="p-2">
-                  <div className="grid grid-cols-2 gap-1">
-                    {[...mainNavigation.slice(4), ...secondaryNavigation].map((item) => (
-                      <Link
-                        key={item.name}
-                        href={item.href}
-                        className="px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md transition-colors"
-                      >
-                        {item.name}
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </nav>
-
-          {/* Desktop Connect Button */}
+          {/* Connect Button */}
           <div className="hidden md:block">
             <ConnectButton />
           </div>
