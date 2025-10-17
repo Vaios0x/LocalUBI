@@ -6,6 +6,8 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { GlassCard } from '@/components/effects/GlassCard';
 import { Button } from '@/components/ui/button';
+import { Header } from '@/components/shared/Header';
+import { Footer } from '@/components/shared/Footer';
 import { 
   ShoppingCart, 
   Search,
@@ -98,7 +100,9 @@ export default function MarketplacePage() {
   });
 
   return (
-    <div className="min-h-screen p-4 md:p-6 lg:p-8">
+    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-indigo-900 to-blue-900">
+      <Header />
+      <div className="p-4 md:p-6 lg:p-8 pt-24">
       <div className="max-w-6xl mx-auto space-y-6">
         {/* Header */}
         <div className="text-center space-y-4">
@@ -250,6 +254,8 @@ export default function MarketplacePage() {
           </div>
         </GlassCard>
       </div>
+      </div>
+      <Footer />
     </div>
   );
 }
