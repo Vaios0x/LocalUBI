@@ -7,6 +7,8 @@ import { motion } from 'framer-motion';
 import { GlassCard } from '@/components/effects/GlassCard';
 import { Button } from '@/components/ui/button';
 import { useTanda } from '@/hooks/useTanda';
+import { Header } from '@/components/shared/Header';
+import { Footer } from '@/components/shared/Footer';
 import { 
   Users, 
   DollarSign, 
@@ -39,7 +41,9 @@ export default function TandasPage() {
 
   if (loadingTandas) {
     return (
-      <div className="min-h-screen p-4 md:p-6 lg:p-8">
+      <div className="min-h-screen bg-gradient-to-br from-purple-900 via-indigo-900 to-blue-900">
+        <Header />
+        <div className="p-4 md:p-6 lg:p-8 pt-24">
         <div className="max-w-6xl mx-auto space-y-6">
           <div className="text-center">
             <h1 className="text-3xl font-bold text-gradient mb-4">Mis Tandas</h1>
@@ -51,12 +55,16 @@ export default function TandasPage() {
             ))}
           </div>
         </div>
+        </div>
+        <Footer />
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen p-4 md:p-6 lg:p-8">
+    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-indigo-900 to-blue-900">
+      <Header />
+      <div className="p-4 md:p-6 lg:p-8 pt-24">
       <div className="max-w-6xl mx-auto space-y-6">
         {/* Header */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
@@ -274,6 +282,8 @@ export default function TandasPage() {
           </GlassCard>
         </div>
       </div>
+      </div>
+      <Footer />
     </div>
   );
 }

@@ -7,6 +7,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { GlassCard } from '@/components/effects/GlassCard';
 import { Button } from '@/components/ui/button';
 import { useGoodDollar } from '@/hooks/useGoodDollar';
+import { Header } from '@/components/shared/Header';
+import { Footer } from '@/components/shared/Footer';
 import { 
   Gift, 
   Sparkles, 
@@ -64,7 +66,9 @@ export default function ClaimPage() {
   weeklyStats.percentage = (weeklyStats.claimed / weeklyStats.total) * 100;
 
   return (
-    <div className="min-h-screen p-4 md:p-6 lg:p-8">
+    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-indigo-900 to-blue-900">
+      <Header />
+      <div className="p-4 md:p-6 lg:p-8 pt-24">
       <div className="max-w-4xl mx-auto space-y-6">
         {/* Header */}
         <div className="text-center space-y-2">
@@ -300,6 +304,8 @@ export default function ClaimPage() {
           </div>
         </GlassCard>
       </div>
+      </div>
+      <Footer />
     </div>
   );
 }

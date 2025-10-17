@@ -7,6 +7,7 @@ import { GlassCard } from '@/components/effects/GlassCard';
 import { ConnectButton } from '@/components/wallet/ConnectButton';
 import { InteractiveButton } from '@/components/ui/InteractiveButton';
 import { Header } from '@/components/shared/Header';
+import { Footer } from '@/components/shared/Footer';
 import { 
   ArrowRight, 
   Users, 
@@ -613,89 +614,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="relative z-10 py-12 md:py-16">
-        <div className="container mx-auto">
-          {/* Main Footer */}
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-8 text-white/80 text-sm mb-8">
-            <div className="flex items-center gap-3">
-              <div className="w-8 h-8 bg-gradient-to-r from-green-500 to-emerald-500 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">L</span>
-              </div>
-              <span className="text-xl font-bold text-gradient">LocalUBI México</span>
-            </div>
-            
-            <p className="text-center lg:text-left">
-              © 2025 LocalUBI. Hecho con <Heart className="inline w-4 h-4 text-red-500" /> para comunidades mexicanas.
-            </p>
-            
-            <div className="flex gap-6">
-              <Link href="/privacy" className="hover:text-white transition-colors">
-                Privacidad
-              </Link>
-              <Link href="/terms" className="hover:text-white transition-colors">
-                Términos
-              </Link>
-              <Link href="/support" className="hover:text-white transition-colors">
-                Soporte
-              </Link>
-            </div>
-          </div>
-
-          {/* Hackathon Tracks Footer */}
-          <div className="border-t border-white/20 pt-8">
-            <motion.h3 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="text-2xl font-bold text-gradient mb-6 text-center"
-            >
-              🏆 RealFi Hackathon - 11 Tracks Implementados
-            </motion.h3>
-            
-            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
-              {hackathonTracks.map((track, idx) => (
-                <motion.div
-                  key={idx}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: idx * 0.05 }}
-                >
-                  <Link href={track.href}>
-                    <div className="bg-white/5 rounded-lg p-3 text-center hover:bg-white/10 transition-colors cursor-pointer">
-                      <div className="text-2xl mb-2">{track.icon}</div>
-                      <h4 className="text-sm font-semibold text-white mb-1">{track.title}</h4>
-                      <p className="text-xs text-white/70 mb-2">{track.description}</p>
-                      <div className="bg-gradient-to-r from-blue-500 to-cyan-500 text-white text-xs font-bold px-2 py-1 rounded-full">
-                        {track.implementation}
-                      </div>
-                    </div>
-                  </Link>
-                </motion.div>
-              ))}
-            </div>
-            
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="text-center mt-8"
-            >
-              <div className="bg-gradient-to-r from-green-500/20 to-emerald-500/20 rounded-lg p-4 border border-green-500/30">
-                <p className="text-lg font-semibold text-white mb-2">
-                  🎯 Única propuesta que cubre TODOS los tracks
-                </p>
-                <p className="text-white/80">
-                  Cada track implementado con <span className="text-green-400 font-bold">tecnología específica y funcional</span>
-                </p>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

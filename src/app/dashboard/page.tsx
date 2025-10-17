@@ -6,6 +6,8 @@ import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { GlassCard } from '@/components/effects/GlassCard';
 import { useHumanWallet } from '@/hooks/useHumanWallet';
+import { Header } from '@/components/shared/Header';
+import { Footer } from '@/components/shared/Footer';
 import { 
   Wallet, 
   Users, 
@@ -108,9 +110,11 @@ export default function DashboardPage() {
   ];
 
   return (
-    <div className="min-h-screen p-4 md:p-6 lg:p-8 space-y-6">
-      {/* Header */}
-      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-indigo-900 to-blue-900">
+      <Header />
+      <div className="p-4 md:p-6 lg:p-8 space-y-6 pt-24">
+        {/* Header */}
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
         <div>
           <h1 className="text-3xl font-bold text-gradient">
             Bienvenid@ de vuelta
@@ -368,6 +372,8 @@ export default function DashboardPage() {
           </div>
         </GlassCard>
       )}
+      </div>
+      <Footer />
     </div>
   );
 }
