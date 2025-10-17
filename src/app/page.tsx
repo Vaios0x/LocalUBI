@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import { GlassCard } from '@/components/effects/GlassCard';
 import { ConnectButton } from '@/components/wallet/ConnectButton';
 import { InteractiveButton } from '@/components/ui/InteractiveButton';
+import { Header } from '@/components/shared/Header';
 import { 
   ArrowRight, 
   Users, 
@@ -173,36 +174,10 @@ export default function HomePage() {
 
   return (
     <div className="relative min-h-screen overflow-hidden">
-      {/* Header */}
-      <header className="relative z-10 w-full p-4 md:px-8 flex justify-between items-center">
-        <Link href="/" className="flex items-center gap-3 text-2xl font-bold text-white group">
-          <motion.div 
-            className="w-10 h-10 bg-gradient-to-r from-green-500 to-emerald-500 rounded-xl flex items-center justify-center"
-            whileHover={{ rotate: 360 }}
-            transition={{ duration: 0.5 }}
-          >
-            <span className="text-white font-bold text-lg">L</span>
-          </motion.div>
-          <span className="text-gradient text-3xl font-extrabold">LocalUBI</span>
-        </Link>
-        
-        <nav className="hidden md:flex items-center gap-6 text-white/80">
-          <a href="#how-it-works" className="hover:text-white transition-colors duration-300 hover:scale-105">
-            Cómo Funciona
-          </a>
-          <a href="#tandas" className="hover:text-white transition-colors duration-300 hover:scale-105">
-            Tandas
-          </a>
-          <a href="#testimonials" className="hover:text-white transition-colors duration-300 hover:scale-105">
-            Testimonios
-          </a>
-        </nav>
-        
-        <ConnectButton />
-      </header>
+      <Header />
 
       {/* Hero Section */}
-      <section className="relative z-10 flex items-center justify-center min-h-[calc(100vh-80px)] px-4 py-16 md:py-24">
+      <section className="relative z-10 flex items-center justify-center min-h-screen px-4 py-16 md:py-24 pt-24">
         <div className="container mx-auto grid lg:grid-cols-2 gap-12 items-center">
           {/* Left: Content */}
           <motion.div 
