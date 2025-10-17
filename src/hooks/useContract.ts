@@ -12,13 +12,13 @@ export function useContract() {
   });
 
   // Write contract functions
-  const writeContract = async (functionName: string, args: any[] = []) => {
+  const writeContract = async (functionName: 'createTanda' | 'joinTanda' | 'payRound', args: any[] = []) => {
     try {
       const hash = await writeContractAsync({
         address: TANDA_ADDRESS,
         abi: TANDA_ABI,
         functionName,
-        args,
+        args: args as any,
       });
       
       toast.success('Transacción enviada');

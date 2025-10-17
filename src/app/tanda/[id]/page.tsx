@@ -1,5 +1,7 @@
 'use client';
 
+export const dynamic = 'force-dynamic';
+
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { GlassCard } from '@/components/effects/GlassCard';
@@ -96,9 +98,11 @@ export default function TandaDetailPage({ params }: { params: Promise<{ id: stri
   };
 
   const handlePayRound = async () => {
+    if (!tandaId) return;
+    
     setPaying(true);
     try {
-      await payRound.mutateAsync(parseInt(params.id));
+      await payRound.mutateAsync(parseInt(tandaId));
       toast.success('¡Pago realizado exitosamente!');
       fetchTandaDetail(); // Refresh data
     } catch (error) {

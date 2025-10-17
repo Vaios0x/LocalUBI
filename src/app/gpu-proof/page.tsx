@@ -1,5 +1,7 @@
 'use client';
 
+export const dynamic = 'force-dynamic';
+
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Cpu, Play, Square, CheckCircle, AlertCircle, Clock } from 'lucide-react';
@@ -7,9 +9,21 @@ import { getNumbersService } from '@/lib/numbers-protocol';
 import { Header } from '@/components/shared/Header';
 import { Footer } from '@/components/shared/Footer';
 
+interface Job {
+  id: string;
+  type: string;
+  userId: string;
+  startTime: Date;
+  endTime?: Date;
+  status: 'running' | 'completed' | 'stopped';
+  gpuHours: number;
+  outputHash: string;
+  receipt?: any;
+}
+
 export default function GPUProofPage() {
-  const [jobs, setJobs] = useState<any[]>([]);
-  const [currentJob, setCurrentJob] = useState<any>(null);
+  const [jobs, setJobs] = useState<Job[]>([]);
+  const [currentJob, setCurrentJob] = useState<Job | null>(null);
   const [isRunning, setIsRunning] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -30,26 +44,26 @@ export default function GPUProofPage() {
       const jobId = `job_${Date.now()}`;
       const startTime = new Date();
       
-      const job = {
+      const job: Job = {
         id: jobId,
         type: jobType,
         userId: 'user_123',
         startTime,
-        status: 'running',
+        status: 'running' as const,
         gpuHours: 0,
         outputHash: ''
       };
 
       setCurrentJob(job);
-      setJobs(prev => [...prev, job]);
+      setJobs((prev: Job[]) => [...prev, job]);
 
       // Simular trabajo de GPU
       const duration = Math.random() * 30000 + 10000; // 10-40 segundos
       const interval = setInterval(() => {
-        setCurrentJob(prev => ({
+        setCurrentJob((prev: Job | null) => prev ? ({
           ...prev,
           gpuHours: prev.gpuHours + 0.1
-        }));
+        }) : null);
       }, 1000);
 
       setTimeout(async () => {
@@ -69,17 +83,17 @@ export default function GPUProofPage() {
           outputHash
         );
 
-        const completedJob = {
+        const completedJob: Job = {
           ...job,
           endTime,
-          status: 'completed',
+          status: 'completed' as const,
           gpuHours,
           outputHash,
           receipt
         };
 
         setCurrentJob(null);
-        setJobs(prev => prev.map(j => j.id === jobId ? completedJob : j));
+        setJobs((prev: Job[]) => prev.map(j => j.id === jobId ? completedJob : j));
         setIsRunning(false);
       }, duration);
 
@@ -91,12 +105,12 @@ export default function GPUProofPage() {
 
   const stopJob = () => {
     if (currentJob) {
-      setCurrentJob(prev => ({ ...prev, status: 'stopped' }));
+      setCurrentJob((prev: Job | null) => prev ? ({ ...prev, status: 'stopped' as const }) : null);
       setIsRunning(false);
     }
   };
 
-  const verifyJob = async (job: any) => {
+  const verifyJob = async (job: Job) => {
     try {
       if (job.receipt) {
         const isValid = await numbersService.verifyReceipt(job.receipt);

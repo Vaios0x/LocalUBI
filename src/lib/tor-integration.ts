@@ -256,9 +256,12 @@ export class TorService {
 
   private async uploadToIPFS(content: string): Promise<string> {
     // Subir a IPFS
+    const formData = new FormData();
+    formData.append('file', new Blob([content]));
+    
     const response = await fetch(`${process.env.IPFS_NODE_URL}/api/v0/add`, {
       method: 'POST',
-      body: new FormData().append('file', new Blob([content]))
+      body: formData
     });
     
     const result = await response.json();

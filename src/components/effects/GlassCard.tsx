@@ -4,7 +4,7 @@ import { motion, HTMLMotionProps } from 'framer-motion';
 import { cn } from '@/lib/utils';
 import { ReactNode } from 'react';
 
-interface GlassCardProps extends Omit<HTMLMotionProps, 'children'> {
+interface GlassCardProps extends Omit<HTMLMotionProps<'div'>, 'children'> {
   children: ReactNode;
   variant?: 'default' | 'strong' | 'neural' | 'glow';
   hover?: boolean;

@@ -317,11 +317,11 @@ export class EnhancedTandaContract {
   }
 
   // Métodos auxiliares privados
-  private async calculateEndDate(
+  private calculateEndDate(
     startDate: Date, 
     frequency: string, 
     maxMembers: number
-  ): Promise<Date> {
+  ): Date {
     const weeksPerMember = frequency === 'weekly' ? 1 : 
                           frequency === 'biweekly' ? 2 : 4;
     const totalWeeks = maxMembers * weeksPerMember;
