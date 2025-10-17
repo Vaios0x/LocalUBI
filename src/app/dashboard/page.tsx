@@ -112,20 +112,20 @@ export default function DashboardPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-900 via-indigo-900 to-blue-900">
       <Header />
-      <div className="p-4 md:p-6 lg:p-8 space-y-6 pt-24">
+      <div className="p-3 sm:p-4 md:p-6 lg:p-8 space-y-4 sm:space-y-6 pt-20 sm:pt-24">
         {/* Header */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 sm:gap-4">
         <div>
-          <h1 className="text-3xl font-bold text-gradient">
+          <h1 className="text-2xl sm:text-3xl font-bold text-gradient">
             Bienvenid@ de vuelta
           </h1>
-          <p className="text-muted-foreground mt-1">
+          <p className="text-muted-foreground mt-1 text-sm sm:text-base">
             Tu resumen financiero del día
           </p>
         </div>
         
         <div className="flex gap-2">
-          <Button variant="outline" asChild>
+          <Button variant="outline" asChild size="sm" className="text-xs sm:text-sm">
             <Link href="/settings">
               Configuración
             </Link>
@@ -134,29 +134,29 @@ export default function DashboardPage() {
       </div>
 
       {/* Main Stats Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        <GlassCard className="p-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+        <GlassCard className="p-4 sm:p-6">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm text-muted-foreground">Balance Total</p>
-              <p className="text-2xl font-bold mt-1">
+              <p className="text-xs sm:text-sm text-muted-foreground">Balance Total</p>
+              <p className="text-lg sm:text-2xl font-bold mt-1">
                 {balance?.formatted || '0'} G$
               </p>
               <p className="text-xs text-muted-foreground mt-1">
                 ≈ ${(Number(balance?.value || 0) * 0.01).toFixed(2)} USD
               </p>
             </div>
-            <div className="p-3 rounded-full bg-gradient-to-r from-green-500/20 to-emerald-500/20">
-              <Wallet className="w-6 h-6 text-green-500" />
+            <div className="p-2 sm:p-3 rounded-full bg-gradient-to-r from-green-500/20 to-emerald-500/20">
+              <Wallet className="w-4 h-4 sm:w-6 sm:h-6 text-green-500" />
             </div>
           </div>
         </GlassCard>
 
-        <GlassCard className="p-6">
+        <GlassCard className="p-4 sm:p-6">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm text-muted-foreground">Total Ahorrado</p>
-              <p className="text-2xl font-bold mt-1">
+              <p className="text-xs sm:text-sm text-muted-foreground">Total Ahorrado</p>
+              <p className="text-lg sm:text-2xl font-bold mt-1">
                 {stats.totalSaved.toLocaleString()} G$
               </p>
               <p className="text-xs text-green-500 mt-1 flex items-center">
@@ -164,47 +164,47 @@ export default function DashboardPage() {
                 +12% este mes
               </p>
             </div>
-            <div className="p-3 rounded-full bg-gradient-to-r from-blue-500/20 to-indigo-500/20">
-              <TrendingUp className="w-6 h-6 text-blue-500" />
+            <div className="p-2 sm:p-3 rounded-full bg-gradient-to-r from-blue-500/20 to-indigo-500/20">
+              <TrendingUp className="w-4 h-4 sm:w-6 sm:h-6 text-blue-500" />
             </div>
           </div>
         </GlassCard>
 
-        <GlassCard className="p-6">
+        <GlassCard className="p-4 sm:p-6">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm text-muted-foreground">Tandas Activas</p>
-              <p className="text-2xl font-bold mt-1">{stats.activeTandas}</p>
+              <p className="text-xs sm:text-sm text-muted-foreground">Tandas Activas</p>
+              <p className="text-lg sm:text-2xl font-bold mt-1">{stats.activeTandas}</p>
               <p className="text-xs text-orange-500 mt-1">
                 {stats.pendingPayments > 0 && `${stats.pendingPayments} pagos pendientes`}
               </p>
             </div>
-            <div className="p-3 rounded-full bg-gradient-to-r from-purple-500/20 to-pink-500/20">
-              <Users className="w-6 h-6 text-purple-500" />
+            <div className="p-2 sm:p-3 rounded-full bg-gradient-to-r from-purple-500/20 to-pink-500/20">
+              <Users className="w-4 h-4 sm:w-6 sm:h-6 text-purple-500" />
             </div>
           </div>
         </GlassCard>
 
-        <GlassCard className="p-6">
+        <GlassCard className="p-4 sm:p-6">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm text-muted-foreground">UBI Total</p>
-              <p className="text-2xl font-bold mt-1">
+              <p className="text-xs sm:text-sm text-muted-foreground">UBI Total</p>
+              <p className="text-lg sm:text-2xl font-bold mt-1">
                 {totalClaimed.toLocaleString()} G$
               </p>
               <p className="text-xs text-muted-foreground mt-1">
                 {claimHistory.length} claims
               </p>
             </div>
-            <div className="p-3 rounded-full bg-gradient-to-r from-amber-500/20 to-orange-500/20">
-              <Gift className="w-6 h-6 text-amber-500" />
+            <div className="p-2 sm:p-3 rounded-full bg-gradient-to-r from-amber-500/20 to-orange-500/20">
+              <Gift className="w-4 h-4 sm:w-6 sm:h-6 text-amber-500" />
             </div>
           </div>
         </GlassCard>
       </div>
 
       {/* Quick Actions */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
         {quickActions.map((action, idx) => (
           <motion.div
             key={idx}
@@ -214,18 +214,18 @@ export default function DashboardPage() {
           >
             <Link href={action.href}>
               <GlassCard 
-                className={`p-6 cursor-pointer transition-all ${
+                className={`p-4 sm:p-6 cursor-pointer transition-all ${
                   action.disabled ? 'opacity-50 pointer-events-none' : ''
                 }`}
               >
-                <div className="flex items-center justify-between mb-4">
-                  <div className={`p-3 rounded-xl bg-gradient-to-r ${action.color}`}>
-                    <action.icon className="w-6 h-6 text-white" />
+                <div className="flex items-center justify-between mb-3 sm:mb-4">
+                  <div className={`p-2 sm:p-3 rounded-xl bg-gradient-to-r ${action.color}`}>
+                    <action.icon className="w-4 h-4 sm:w-6 sm:h-6 text-white" />
                   </div>
-                  <ArrowUp className="w-5 h-5 text-muted-foreground rotate-45" />
+                  <ArrowUp className="w-4 h-4 sm:w-5 sm:h-5 text-muted-foreground rotate-45" />
                 </div>
-                <h3 className="font-semibold text-lg">{action.title}</h3>
-                <p className="text-sm text-muted-foreground mt-1">
+                <h3 className="font-semibold text-base sm:text-lg">{action.title}</h3>
+                <p className="text-xs sm:text-sm text-muted-foreground mt-1">
                   {action.description}
                 </p>
               </GlassCard>
@@ -234,13 +234,13 @@ export default function DashboardPage() {
         ))}
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6">
         {/* Active Tandas */}
         <div className="lg:col-span-2">
-          <GlassCard className="p-6">
-            <div className="flex justify-between items-center mb-6">
-              <h2 className="text-xl font-semibold">Tus Tandas Activas</h2>
-              <Button variant="ghost" size="sm" asChild>
+          <GlassCard className="p-4 sm:p-6">
+            <div className="flex justify-between items-center mb-4 sm:mb-6">
+              <h2 className="text-lg sm:text-xl font-semibold">Tus Tandas Activas</h2>
+              <Button variant="ghost" size="sm" asChild className="text-xs sm:text-sm">
                 <Link href="/tanda">Ver todas →</Link>
               </Button>
             </div>
@@ -300,10 +300,10 @@ export default function DashboardPage() {
 
         {/* Recent Transactions */}
         <div className="lg:col-span-1">
-          <GlassCard className="p-6">
-            <div className="flex justify-between items-center mb-6">
-              <h2 className="text-xl font-semibold">Actividad</h2>
-              <Button variant="ghost" size="sm" asChild>
+          <GlassCard className="p-4 sm:p-6">
+            <div className="flex justify-between items-center mb-4 sm:mb-6">
+              <h2 className="text-lg sm:text-xl font-semibold">Actividad</h2>
+              <Button variant="ghost" size="sm" asChild className="text-xs sm:text-sm">
                 <Link href="/transactions">Ver todo →</Link>
               </Button>
             </div>
@@ -350,15 +350,15 @@ export default function DashboardPage() {
 
       {/* Upcoming Events */}
       {stats.nextPayout && (
-        <GlassCard className="p-6">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-4">
-              <div className="p-3 rounded-xl bg-gradient-to-r from-amber-500/20 to-orange-500/20">
-                <Calendar className="w-6 h-6 text-amber-500" />
+        <GlassCard className="p-4 sm:p-6">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4">
+            <div className="flex items-center gap-3 sm:gap-4">
+              <div className="p-2 sm:p-3 rounded-xl bg-gradient-to-r from-amber-500/20 to-orange-500/20">
+                <Calendar className="w-4 h-4 sm:w-6 sm:h-6 text-amber-500" />
               </div>
               <div>
-                <h3 className="font-semibold">Próximo Payout</h3>
-                <p className="text-sm text-muted-foreground">
+                <h3 className="font-semibold text-sm sm:text-base">Próximo Payout</h3>
+                <p className="text-xs sm:text-sm text-muted-foreground">
                   Recibirás tu pago de tanda {formatDistanceToNow(stats.nextPayout, { 
                     addSuffix: true, 
                     locale: es 
@@ -366,7 +366,7 @@ export default function DashboardPage() {
                 </p>
               </div>
             </div>
-            <Button asChild>
+            <Button asChild size="sm" className="text-xs sm:text-sm">
               <Link href="/tanda">Ver Detalles</Link>
             </Button>
           </div>

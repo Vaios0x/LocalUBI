@@ -76,46 +76,46 @@ export default function CreateTandaPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-900 via-indigo-900 to-blue-900">
       <Header />
-      <div className="p-4 md:p-6 lg:p-8 pt-24">
+      <div className="p-3 sm:p-4 md:p-6 lg:p-8 pt-20 sm:pt-24">
       <div className="max-w-4xl mx-auto space-y-6">
         {/* Header */}
-        <div className="flex items-center gap-4 mb-8">
+        <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 mb-6 sm:mb-8">
           <Button variant="ghost" size="sm" asChild>
             <Link href="/dashboard">
-              <ArrowLeft className="w-4 h-4 mr-2" />
+              <ArrowLeft className="w-3 h-3 sm:w-4 sm:h-4 mr-2" />
               Volver
             </Link>
           </Button>
           <div>
-            <h1 className="text-3xl font-bold text-gradient">Crear Nueva Tanda</h1>
-            <p className="text-muted-foreground">Configura tu tanda digital paso a paso</p>
+            <h1 className="text-2xl sm:text-3xl font-bold text-gradient">Crear Nueva Tanda</h1>
+            <p className="text-sm sm:text-base text-muted-foreground">Configura tu tanda digital paso a paso</p>
           </div>
         </div>
 
         {/* Progress Steps */}
-        <div className="flex items-center justify-center space-x-8 mb-8">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-center space-y-4 sm:space-y-0 sm:space-x-4 lg:space-x-8 mb-6 sm:mb-8">
           {steps.map((stepItem, idx) => (
             <div key={idx} className="flex items-center">
-              <div className={`flex items-center justify-center w-10 h-10 rounded-full border-2 ${
+              <div className={`flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 ${
                 step >= stepItem.number 
                   ? 'border-green-500 bg-green-500 text-white' 
                   : 'border-muted text-muted-foreground'
               }`}>
                 {step > stepItem.number ? (
-                  <CheckCircle className="w-5 h-5" />
+                  <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5" />
                 ) : (
-                  <stepItem.icon className="w-5 h-5" />
+                  <stepItem.icon className="w-4 h-4 sm:w-5 sm:h-5" />
                 )}
               </div>
-              <div className="ml-3">
-                <p className={`text-sm font-medium ${
+              <div className="ml-2 sm:ml-3">
+                <p className={`text-xs sm:text-sm font-medium ${
                   step >= stepItem.number ? 'text-foreground' : 'text-muted-foreground'
                 }`}>
                   {stepItem.title}
                 </p>
               </div>
               {idx < steps.length - 1 && (
-                <div className={`w-16 h-0.5 ml-4 ${
+                <div className={`hidden sm:block w-8 lg:w-16 h-0.5 ml-2 lg:ml-4 ${
                   step > stepItem.number ? 'bg-green-500' : 'bg-muted'
                 }`} />
               )}
@@ -130,19 +130,19 @@ export default function CreateTandaPage() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.3 }}
         >
-          <GlassCard className="p-8">
+          <GlassCard className="p-4 sm:p-6 lg:p-8">
             {step === 1 && (
               <div className="space-y-6">
                 <div>
-                  <h2 className="text-2xl font-semibold mb-4">Información Básica</h2>
-                  <p className="text-muted-foreground mb-6">
+                  <h2 className="text-xl sm:text-2xl font-semibold mb-3 sm:mb-4">Información Básica</h2>
+                  <p className="text-sm sm:text-base text-muted-foreground mb-4 sm:mb-6">
                     Proporciona los detalles básicos de tu tanda
                   </p>
                 </div>
 
-                <div className="space-y-4">
+                <div className="space-y-3 sm:space-y-4">
                   <div>
-                    <label className="block text-sm font-medium mb-2">
+                    <label className="block text-xs sm:text-sm font-medium mb-2">
                       Nombre de la Tanda *
                     </label>
                     <input
@@ -150,13 +150,13 @@ export default function CreateTandaPage() {
                       value={formData.name}
                       onChange={(e) => handleInputChange('name', e.target.value)}
                       placeholder="Ej: Tanda Familia González"
-                      className="w-full px-4 py-3 rounded-lg border border-input bg-background focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                      className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg border border-input bg-background focus:ring-2 focus:ring-green-500 focus:border-transparent text-sm sm:text-base"
                       required
                     />
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium mb-2">
+                    <label className="block text-xs sm:text-sm font-medium mb-2">
                       Descripción (Opcional)
                     </label>
                     <textarea
@@ -164,13 +164,13 @@ export default function CreateTandaPage() {
                       onChange={(e) => handleInputChange('description', e.target.value)}
                       placeholder="Describe el propósito de esta tanda..."
                       rows={3}
-                      className="w-full px-4 py-3 rounded-lg border border-input bg-background focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                      className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg border border-input bg-background focus:ring-2 focus:ring-green-500 focus:border-transparent text-sm sm:text-base"
                     />
                   </div>
                 </div>
 
                 <div className="flex justify-end">
-                  <Button onClick={handleNext} disabled={!formData.name}>
+                  <Button onClick={handleNext} disabled={!formData.name} size="sm" className="text-xs sm:text-sm">
                     Siguiente
                   </Button>
                 </div>
@@ -180,26 +180,26 @@ export default function CreateTandaPage() {
             {step === 2 && (
               <div className="space-y-6">
                 <div>
-                  <h2 className="text-2xl font-semibold mb-4">Configuración Financiera</h2>
-                  <p className="text-muted-foreground mb-6">
+                  <h2 className="text-xl sm:text-2xl font-semibold mb-3 sm:mb-4">Configuración Financiera</h2>
+                  <p className="text-sm sm:text-base text-muted-foreground mb-4 sm:mb-6">
                     Define los parámetros económicos de tu tanda
                   </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                   <div>
-                    <label className="block text-sm font-medium mb-2">
+                    <label className="block text-xs sm:text-sm font-medium mb-2">
                       Monto Mensual (G$) *
                     </label>
                     <div className="relative">
-                      <DollarSign className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+                      <DollarSign className="absolute left-3 top-1/2 transform -translate-y-1/2 w-3 h-3 sm:w-4 sm:h-4 text-muted-foreground" />
                       <input
                         type="number"
                         value={formData.monthlyAmount}
                         onChange={(e) => handleInputChange('monthlyAmount', parseInt(e.target.value))}
                         placeholder="500"
                         min="100"
-                        className="w-full pl-10 pr-4 py-3 rounded-lg border border-input bg-background focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                        className="w-full pl-8 sm:pl-10 pr-3 sm:pr-4 py-2 sm:py-3 rounded-lg border border-input bg-background focus:ring-2 focus:ring-green-500 focus:border-transparent text-sm sm:text-base"
                         required
                       />
                     </div>
@@ -209,11 +209,11 @@ export default function CreateTandaPage() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium mb-2">
+                    <label className="block text-xs sm:text-sm font-medium mb-2">
                       Número de Participantes *
                     </label>
                     <div className="relative">
-                      <Users className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+                      <Users className="absolute left-3 top-1/2 transform -translate-y-1/2 w-3 h-3 sm:w-4 sm:h-4 text-muted-foreground" />
                       <input
                         type="number"
                         value={formData.maxMembers}
@@ -221,7 +221,7 @@ export default function CreateTandaPage() {
                         placeholder="8"
                         min="3"
                         max="20"
-                        className="w-full pl-10 pr-4 py-3 rounded-lg border border-input bg-background focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                        className="w-full pl-8 sm:pl-10 pr-3 sm:pr-4 py-2 sm:py-3 rounded-lg border border-input bg-background focus:ring-2 focus:ring-green-500 focus:border-transparent text-sm sm:text-base"
                         required
                       />
                     </div>
@@ -232,15 +232,15 @@ export default function CreateTandaPage() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium mb-2">
+                  <label className="block text-xs sm:text-sm font-medium mb-2">
                     Frecuencia de Pagos *
                   </label>
                   <div className="relative">
-                    <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+                    <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 w-3 h-3 sm:w-4 sm:h-4 text-muted-foreground" />
                     <select
                       value={formData.frequency}
                       onChange={(e) => handleInputChange('frequency', parseInt(e.target.value))}
-                      className="w-full pl-10 pr-4 py-3 rounded-lg border border-input bg-background focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                      className="w-full pl-8 sm:pl-10 pr-3 sm:pr-4 py-2 sm:py-3 rounded-lg border border-input bg-background focus:ring-2 focus:ring-green-500 focus:border-transparent text-sm sm:text-base"
                     >
                       <option value={7}>Semanal (7 días)</option>
                       <option value={15}>Quincenal (15 días)</option>
@@ -250,11 +250,11 @@ export default function CreateTandaPage() {
                   </div>
                 </div>
 
-                <div className="flex justify-between">
-                  <Button variant="outline" onClick={handleBack}>
+                <div className="flex flex-col sm:flex-row justify-between gap-3 sm:gap-0">
+                  <Button variant="outline" onClick={handleBack} size="sm" className="text-xs sm:text-sm">
                     Anterior
                   </Button>
-                  <Button onClick={handleNext}>
+                  <Button onClick={handleNext} size="sm" className="text-xs sm:text-sm">
                     Siguiente
                   </Button>
                 </div>
@@ -264,47 +264,47 @@ export default function CreateTandaPage() {
             {step === 3 && (
               <div className="space-y-6">
                 <div>
-                  <h2 className="text-2xl font-semibold mb-4">Confirmación</h2>
-                  <p className="text-muted-foreground mb-6">
+                  <h2 className="text-xl sm:text-2xl font-semibold mb-3 sm:mb-4">Confirmación</h2>
+                  <p className="text-sm sm:text-base text-muted-foreground mb-4 sm:mb-6">
                     Revisa los detalles antes de crear tu tanda
                   </p>
                 </div>
 
-                <div className="space-y-4">
-                  <div className="p-4 rounded-lg bg-muted/50">
-                    <h3 className="font-semibold text-lg">{formData.name}</h3>
+                <div className="space-y-3 sm:space-y-4">
+                  <div className="p-3 sm:p-4 rounded-lg bg-muted/50">
+                    <h3 className="font-semibold text-base sm:text-lg">{formData.name}</h3>
                     {formData.description && (
-                      <p className="text-muted-foreground mt-1">{formData.description}</p>
+                      <p className="text-xs sm:text-sm text-muted-foreground mt-1">{formData.description}</p>
                     )}
                   </div>
 
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="p-4 rounded-lg border">
-                      <p className="text-sm text-muted-foreground">Monto Mensual</p>
-                      <p className="text-xl font-semibold">{formData.monthlyAmount} G$</p>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                    <div className="p-3 sm:p-4 rounded-lg border">
+                      <p className="text-xs sm:text-sm text-muted-foreground">Monto Mensual</p>
+                      <p className="text-lg sm:text-xl font-semibold">{formData.monthlyAmount} G$</p>
                     </div>
-                    <div className="p-4 rounded-lg border">
-                      <p className="text-sm text-muted-foreground">Participantes</p>
-                      <p className="text-xl font-semibold">{formData.maxMembers}</p>
+                    <div className="p-3 sm:p-4 rounded-lg border">
+                      <p className="text-xs sm:text-sm text-muted-foreground">Participantes</p>
+                      <p className="text-lg sm:text-xl font-semibold">{formData.maxMembers}</p>
                     </div>
-                    <div className="p-4 rounded-lg border">
-                      <p className="text-sm text-muted-foreground">Frecuencia</p>
-                      <p className="text-xl font-semibold">{formData.frequency} días</p>
+                    <div className="p-3 sm:p-4 rounded-lg border">
+                      <p className="text-xs sm:text-sm text-muted-foreground">Frecuencia</p>
+                      <p className="text-lg sm:text-xl font-semibold">{formData.frequency} días</p>
                     </div>
-                    <div className="p-4 rounded-lg border">
-                      <p className="text-sm text-muted-foreground">Duración Total</p>
-                      <p className="text-xl font-semibold">
+                    <div className="p-3 sm:p-4 rounded-lg border">
+                      <p className="text-xs sm:text-sm text-muted-foreground">Duración Total</p>
+                      <p className="text-lg sm:text-xl font-semibold">
                         {formData.frequency * formData.maxMembers} días
                       </p>
                     </div>
                   </div>
 
-                  <div className="p-4 rounded-lg bg-green-500/10 border border-green-500/20">
-                    <div className="flex items-start gap-3">
-                      <AlertCircle className="w-5 h-5 text-green-500 mt-0.5" />
+                  <div className="p-3 sm:p-4 rounded-lg bg-green-500/10 border border-green-500/20">
+                    <div className="flex items-start gap-2 sm:gap-3">
+                      <AlertCircle className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 mt-0.5 flex-shrink-0" />
                       <div>
-                        <h4 className="font-semibold text-green-700">Información Importante</h4>
-                        <ul className="text-sm text-green-600 mt-2 space-y-1">
+                        <h4 className="font-semibold text-green-700 text-sm sm:text-base">Información Importante</h4>
+                        <ul className="text-xs sm:text-sm text-green-600 mt-2 space-y-1">
                           <li>• La tanda se activará automáticamente cuando se complete el número de participantes</li>
                           <li>• El orden de pago se asignará aleatoriamente al inicio</li>
                           <li>• Se cobrará una comisión del 0.5% por transacción</li>
@@ -315,14 +315,15 @@ export default function CreateTandaPage() {
                   </div>
                 </div>
 
-                <div className="flex justify-between">
-                  <Button variant="outline" onClick={handleBack}>
+                <div className="flex flex-col sm:flex-row justify-between gap-3 sm:gap-0">
+                  <Button variant="outline" onClick={handleBack} size="sm" className="text-xs sm:text-sm">
                     Anterior
                   </Button>
                   <Button 
                     onClick={handleSubmit}
                     disabled={isCreating}
-                    className="min-w-[120px]"
+                    className="min-w-[120px] text-xs sm:text-sm"
+                    size="sm"
                   >
                     {isCreating ? 'Creando...' : 'Crear Tanda'}
                   </Button>

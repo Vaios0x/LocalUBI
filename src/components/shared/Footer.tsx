@@ -33,10 +33,10 @@ export function Footer() {
 
   return (
     <footer className="border-t bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 py-8 sm:py-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
           {/* Brand */}
-          <div className="space-y-4">
+          <div className="space-y-4 sm:col-span-2 lg:col-span-1">
             <div className="flex items-center gap-2">
               <div className="w-8 h-8 bg-gradient-to-r from-green-500 to-emerald-500 rounded-lg flex items-center justify-center">
                 <span className="text-white font-bold text-sm">L</span>
@@ -53,6 +53,7 @@ export function Footer() {
                   key={link.name}
                   href={link.href}
                   className="text-muted-foreground hover:text-foreground transition-colors"
+                  aria-label={`Enlace a ${link.name}`}
                 >
                   <link.icon className="w-5 h-5" />
                 </Link>
@@ -62,13 +63,15 @@ export function Footer() {
 
           {/* Product Links */}
           <div className="space-y-4">
-            <h3 className="font-semibold">Producto</h3>
+            <h3 className="font-semibold text-base">Producto</h3>
             <ul className="space-y-2">
               {footerLinks.product.map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                    className="text-sm text-muted-foreground hover:text-foreground transition-colors block py-1"
+                    tabIndex={0}
+                    aria-label={`Enlace a ${link.name}`}
                   >
                     {link.name}
                   </Link>
@@ -79,13 +82,15 @@ export function Footer() {
 
           {/* Support Links */}
           <div className="space-y-4">
-            <h3 className="font-semibold">Soporte</h3>
+            <h3 className="font-semibold text-base">Soporte</h3>
             <ul className="space-y-2">
               {footerLinks.support.map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                    className="text-sm text-muted-foreground hover:text-foreground transition-colors block py-1"
+                    tabIndex={0}
+                    aria-label={`Enlace a ${link.name}`}
                   >
                     {link.name}
                   </Link>
@@ -95,14 +100,16 @@ export function Footer() {
           </div>
 
           {/* Legal Links */}
-          <div className="space-y-4">
-            <h3 className="font-semibold">Legal</h3>
+          <div className="space-y-4 sm:col-span-2 lg:col-span-1">
+            <h3 className="font-semibold text-base">Legal</h3>
             <ul className="space-y-2">
               {footerLinks.legal.map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                    className="text-sm text-muted-foreground hover:text-foreground transition-colors block py-1"
+                    tabIndex={0}
+                    aria-label={`Enlace a ${link.name}`}
                   >
                     {link.name}
                   </Link>
@@ -113,15 +120,15 @@ export function Footer() {
         </div>
 
         {/* Bottom Section */}
-        <div className="mt-12 pt-8 border-t border-muted">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-sm text-muted-foreground">
+        <div className="mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-muted">
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-3 sm:gap-4">
+            <p className="text-xs sm:text-sm text-muted-foreground text-center sm:text-left">
               © 2025 LocalUBI México. Hecho con{' '}
-              <Heart className="inline w-4 h-4 text-red-500" /> para comunidades mexicanas.
+              <Heart className="inline w-3 h-3 sm:w-4 sm:h-4 text-red-500" /> para comunidades mexicanas.
             </p>
-            <div className="flex items-center gap-6 text-sm text-muted-foreground">
+            <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-6 text-xs sm:text-sm text-muted-foreground">
               <span>Powered by Celo & GoodDollar</span>
-              <span>•</span>
+              <span className="hidden sm:inline">•</span>
               <span>100% Descentralizado</span>
             </div>
           </div>

@@ -68,19 +68,19 @@ export default function ClaimPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-900 via-indigo-900 to-blue-900">
       <Header />
-      <div className="p-4 md:p-6 lg:p-8 pt-24">
-      <div className="max-w-4xl mx-auto space-y-6">
+      <div className="p-3 sm:p-4 md:p-6 lg:p-8 pt-20 sm:pt-24">
+      <div className="max-w-4xl mx-auto space-y-4 sm:space-y-6">
         {/* Header */}
         <div className="text-center space-y-2">
           <motion.h1 
-            className="text-4xl font-bold text-gradient"
+            className="text-3xl sm:text-4xl font-bold text-gradient"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
           >
             Claim tu UBI Diario
           </motion.h1>
           <motion.p 
-            className="text-muted-foreground"
+            className="text-sm sm:text-base text-muted-foreground"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.1 }}
@@ -95,18 +95,18 @@ export default function ClaimPage() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.2 }}
         >
-          <GlassCard variant="strong" className="p-8 relative overflow-hidden">
+          <GlassCard variant="strong" className="p-4 sm:p-6 lg:p-8 relative overflow-hidden">
             {/* Background decoration */}
             <div className="absolute inset-0 opacity-10">
-              <div className="absolute -top-24 -right-24 w-48 h-48 bg-green-500 rounded-full blur-3xl" />
-              <div className="absolute -bottom-24 -left-24 w-48 h-48 bg-emerald-500 rounded-full blur-3xl" />
+              <div className="absolute -top-12 sm:-top-24 -right-12 sm:-right-24 w-24 sm:w-48 h-24 sm:h-48 bg-green-500 rounded-full blur-3xl" />
+              <div className="absolute -bottom-12 sm:-bottom-24 -left-12 sm:-left-24 w-24 sm:w-48 h-24 sm:h-48 bg-emerald-500 rounded-full blur-3xl" />
             </div>
 
             <div className="relative z-10">
               {/* Amount Display */}
-              <div className="text-center mb-8">
-                <div className="inline-flex items-center justify-center p-4 rounded-full bg-gradient-to-r from-green-500/20 to-emerald-500/20 mb-4">
-                  <Gift className="w-12 h-12 text-green-500" />
+              <div className="text-center mb-6 sm:mb-8">
+                <div className="inline-flex items-center justify-center p-3 sm:p-4 rounded-full bg-gradient-to-r from-green-500/20 to-emerald-500/20 mb-3 sm:mb-4">
+                  <Gift className="w-8 h-8 sm:w-12 sm:h-12 text-green-500" />
                 </div>
                 
                 <AnimatePresence mode="wait">
@@ -117,10 +117,10 @@ export default function ClaimPage() {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -20 }}
                     >
-                      <h2 className="text-5xl font-bold mb-2">
+                      <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-2">
                         {dailyUBI} G$
                       </h2>
-                      <p className="text-muted-foreground">disponible para claim</p>
+                      <p className="text-sm sm:text-base text-muted-foreground">disponible para claim</p>
                     </motion.div>
                   ) : (
                     <motion.div
@@ -129,10 +129,10 @@ export default function ClaimPage() {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -20 }}
                     >
-                      <h2 className="text-3xl font-bold mb-2 text-muted-foreground">
+                      <h2 className="text-2xl sm:text-3xl font-bold mb-2 text-muted-foreground">
                         Ya reclamado hoy
                       </h2>
-                      <p className="text-sm text-muted-foreground">
+                      <p className="text-xs sm:text-sm text-muted-foreground">
                         Próximo claim {formatDistanceToNow(nextClaimTime || new Date(), { 
                           addSuffix: true, 
                           locale: es 
@@ -144,29 +144,29 @@ export default function ClaimPage() {
               </div>
 
               {/* Claim Button */}
-              <div className="flex justify-center mb-8">
+              <div className="flex justify-center mb-6 sm:mb-8">
                 <Button
                   size="lg"
                   onClick={handleClaim}
                   disabled={!canClaim || claiming}
-                  className="relative overflow-hidden group px-8 py-6 text-lg"
+                  className="relative overflow-hidden group px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg"
                 >
                   {claiming ? (
                     <>
                       <div className="animate-spin mr-2">
-                        <Sparkles className="w-5 h-5" />
+                        <Sparkles className="w-4 h-4 sm:w-5 sm:h-5" />
                       </div>
                       Procesando...
                     </>
                   ) : canClaim ? (
                     <>
-                      <Gift className="mr-2 w-5 h-5" />
+                      <Gift className="mr-2 w-4 h-4 sm:w-5 sm:h-5" />
                       Claim UBI Ahora
                       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
                     </>
                   ) : (
                     <>
-                      <Clock className="mr-2 w-5 h-5" />
+                      <Clock className="mr-2 w-4 h-4 sm:w-5 sm:h-5" />
                       Esperar {formatDistanceToNow(nextClaimTime || new Date(), { locale: es })}
                     </>
                   )}
@@ -175,10 +175,10 @@ export default function ClaimPage() {
 
               {/* Streak Counter */}
               <div className="flex justify-center">
-                <div className="inline-flex items-center gap-2 bg-amber-500/20 text-amber-600 px-4 py-2 rounded-full">
-                  <TrendingUp className="w-4 h-4" />
+                <div className="inline-flex items-center gap-2 bg-amber-500/20 text-amber-600 px-3 sm:px-4 py-2 rounded-full text-sm sm:text-base">
+                  <TrendingUp className="w-3 h-3 sm:w-4 sm:h-4" />
                   <span className="font-semibold">{streak} días de racha</span>
-                  <span className="text-2xl">🔥</span>
+                  <span className="text-lg sm:text-2xl">🔥</span>
                 </div>
               </div>
             </div>
@@ -203,25 +203,25 @@ export default function ClaimPage() {
         </AnimatePresence>
 
         {/* Stats Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <GlassCard className="p-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
+          <GlassCard className="p-4 sm:p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-muted-foreground">Total Reclamado</p>
-                <p className="text-2xl font-bold mt-1">{totalClaimed} G$</p>
+                <p className="text-xs sm:text-sm text-muted-foreground">Total Reclamado</p>
+                <p className="text-lg sm:text-2xl font-bold mt-1">{totalClaimed} G$</p>
                 <p className="text-xs text-muted-foreground mt-1">
                   ≈ ${(totalClaimed * 0.01).toFixed(2)} USD
                 </p>
               </div>
-              <Coins className="w-8 h-8 text-green-500" />
+              <Coins className="w-6 h-6 sm:w-8 sm:h-8 text-green-500" />
             </div>
           </GlassCard>
 
-          <GlassCard className="p-6">
+          <GlassCard className="p-4 sm:p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-muted-foreground">Esta Semana</p>
-                <p className="text-2xl font-bold mt-1">{weeklyStats.claimed}/7</p>
+                <p className="text-xs sm:text-sm text-muted-foreground">Esta Semana</p>
+                <p className="text-lg sm:text-2xl font-bold mt-1">{weeklyStats.claimed}/7</p>
                 <div className="mt-2">
                   <div className="h-2 bg-muted rounded-full overflow-hidden">
                     <div 
@@ -231,52 +231,52 @@ export default function ClaimPage() {
                   </div>
                 </div>
               </div>
-              <Calendar className="w-8 h-8 text-blue-500" />
+              <Calendar className="w-6 h-6 sm:w-8 sm:h-8 text-blue-500" />
             </div>
           </GlassCard>
 
-          <GlassCard className="p-6">
+          <GlassCard className="p-4 sm:p-6 sm:col-span-2 lg:col-span-1">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-muted-foreground">Mejor Racha</p>
-                <p className="text-2xl font-bold mt-1">{streak * 2} días</p>
+                <p className="text-xs sm:text-sm text-muted-foreground">Mejor Racha</p>
+                <p className="text-lg sm:text-2xl font-bold mt-1">{streak * 2} días</p>
                 <p className="text-xs text-green-500 mt-1">
                   Sigue así 💪
                 </p>
               </div>
-              <div className="text-3xl">🏆</div>
+              <div className="text-2xl sm:text-3xl">🏆</div>
             </div>
           </GlassCard>
         </div>
 
         {/* History */}
-        <GlassCard className="p-6">
-          <h2 className="text-xl font-semibold mb-4">Historial de Claims</h2>
+        <GlassCard className="p-4 sm:p-6">
+          <h2 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4">Historial de Claims</h2>
           
           {claimHistory.length === 0 ? (
-            <div className="text-center py-8">
-              <AlertCircle className="w-12 h-12 mx-auto text-muted-foreground mb-3" />
-              <p className="text-muted-foreground">Aún no has reclamado UBI</p>
+            <div className="text-center py-6 sm:py-8">
+              <AlertCircle className="w-8 h-8 sm:w-12 sm:h-12 mx-auto text-muted-foreground mb-3" />
+              <p className="text-sm sm:text-base text-muted-foreground">Aún no has reclamado UBI</p>
             </div>
           ) : (
             <div className="space-y-2">
               {claimHistory.slice(0, 10).map((claim, idx) => (
                 <div
                   key={idx}
-                  className="flex items-center justify-between py-3 px-4 rounded-lg hover:bg-muted/50 transition-colors"
+                  className="flex items-center justify-between py-2 sm:py-3 px-3 sm:px-4 rounded-lg hover:bg-muted/50 transition-colors"
                 >
-                  <div className="flex items-center gap-3">
-                    <div className="p-2 rounded-lg bg-green-500/20 text-green-500">
-                      <CheckCircle className="w-4 h-4" />
+                  <div className="flex items-center gap-2 sm:gap-3">
+                    <div className="p-1.5 sm:p-2 rounded-lg bg-green-500/20 text-green-500">
+                      <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4" />
                     </div>
                     <div>
-                      <p className="font-medium">{claim.amount} G$ reclamados</p>
+                      <p className="font-medium text-sm sm:text-base">{claim.amount} G$ reclamados</p>
                       <p className="text-xs text-muted-foreground">
                         {formatDistanceToNow(claim.date, { addSuffix: true, locale: es })}
                       </p>
                     </div>
                   </div>
-                  <span className="text-sm text-muted-foreground">
+                  <span className="text-xs sm:text-sm text-muted-foreground">
                     {claim.txHash?.slice(0, 6)}...{claim.txHash?.slice(-4)}
                   </span>
                 </div>
@@ -286,17 +286,17 @@ export default function ClaimPage() {
         </GlassCard>
 
         {/* Info Card */}
-        <GlassCard className="p-6 bg-gradient-to-r from-green-500/10 to-emerald-500/10">
-          <div className="flex gap-4">
-            <AlertCircle className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
+        <GlassCard className="p-4 sm:p-6 bg-gradient-to-r from-green-500/10 to-emerald-500/10">
+          <div className="flex gap-3 sm:gap-4">
+            <AlertCircle className="w-5 h-5 sm:w-6 sm:h-6 text-green-500 flex-shrink-0 mt-1" />
             <div className="space-y-2">
-              <h3 className="font-semibold">¿Qué es el UBI?</h3>
-              <p className="text-sm text-muted-foreground">
+              <h3 className="font-semibold text-sm sm:text-base">¿Qué es el UBI?</h3>
+              <p className="text-xs sm:text-sm text-muted-foreground">
                 El Ingreso Básico Universal (UBI) es una forma de distribución de riqueza donde cada persona 
                 recibe una cantidad fija de dinero regularmente. GoodDollar distribuye G$ tokens diariamente 
                 a todos los usuarios verificados, promoviendo la inclusión financiera global.
               </p>
-              <p className="text-sm text-muted-foreground">
+              <p className="text-xs sm:text-sm text-muted-foreground">
                 Puedes usar tus G$ para participar en tandas, comprar en el marketplace, o convertirlos a 
                 otras monedas. ¡Cada claim cuenta para construir tu futuro financiero!
               </p>

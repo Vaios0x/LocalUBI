@@ -178,39 +178,39 @@ export default function HomePage() {
       <Header />
 
       {/* Hero Section */}
-      <section className="relative z-10 flex items-center justify-center min-h-screen px-4 py-16 md:py-24 pt-24">
-        <div className="container mx-auto grid lg:grid-cols-2 gap-12 items-center">
+      <section className="relative z-10 flex items-center justify-center min-h-screen px-3 sm:px-4 py-12 sm:py-16 md:py-24 pt-20 sm:pt-24">
+        <div className="container mx-auto grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Left: Content */}
           <motion.div 
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="text-center lg:text-left"
+            className="text-center lg:text-left order-2 lg:order-1"
           >
             <motion.div
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.6 }}
-              className="inline-flex items-center gap-2 bg-gradient-to-r from-green-500/20 to-emerald-500/20 text-white text-sm font-semibold px-4 py-2 rounded-full mb-6 backdrop-blur-glass border border-white/20"
+              className="inline-flex items-center gap-2 bg-gradient-to-r from-green-500/20 to-emerald-500/20 text-white text-xs sm:text-sm font-semibold px-3 sm:px-4 py-2 rounded-full mb-4 sm:mb-6 backdrop-blur-glass border border-white/20"
             >
-              <Sparkles className="w-4 h-4" />
+              <Sparkles className="w-3 h-3 sm:w-4 sm:h-4" />
               Powered by GoodDollar & Celo
             </motion.div>
             
             <motion.h1 
-              className="text-6xl md:text-7xl font-extrabold leading-tight text-white mb-6"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight text-white mb-4 sm:mb-6"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.8 }}
             >
               UBI + Tandas{' '}
-              <span className="text-gradient text-6xl md:text-7xl font-extrabold">
+              <span className="text-gradient text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold">
                 para tu comunidad
               </span>
             </motion.h1>
             
             <motion.p 
-              className="text-xl text-white/80 mb-8 max-w-lg mx-auto lg:mx-0"
+              className="text-lg sm:text-xl text-white/80 mb-6 sm:mb-8 max-w-lg mx-auto lg:mx-0"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.8 }}
@@ -221,7 +221,7 @@ export default function HomePage() {
 
             {/* Stats */}
             <motion.div 
-              className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-10"
+              className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-4 mb-8 sm:mb-10"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.8 }}
@@ -233,12 +233,12 @@ export default function HomePage() {
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: 0.6 + idx * 0.1, duration: 0.5 }}
                 >
-                  <GlassCard className="p-4 text-center neural" hover={false}>
-                    <div className="flex items-center justify-center mb-2">
-                      <stat.icon className="w-6 h-6 text-green-500" />
+                  <GlassCard className="p-3 sm:p-4 text-center neural" hover={false}>
+                    <div className="flex items-center justify-center mb-1 sm:mb-2">
+                      <stat.icon className="w-4 h-4 sm:w-6 sm:h-6 text-green-500" />
                     </div>
-                    <p className="text-2xl font-bold text-white">{stat.value}</p>
-                    <p className="text-sm text-white/70">{stat.label}</p>
+                    <p className="text-lg sm:text-2xl font-bold text-white">{stat.value}</p>
+                    <p className="text-xs sm:text-sm text-white/70">{stat.label}</p>
                   </GlassCard>
                 </motion.div>
               ))}
@@ -246,7 +246,7 @@ export default function HomePage() {
 
             {/* CTAs */}
             <motion.div 
-              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
+              className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.7, duration: 0.8 }}
@@ -257,8 +257,8 @@ export default function HomePage() {
                     href="/dashboard"
                     variant="neural"
                     size="lg"
-                    className="px-8 py-4 text-lg"
-                    icon={<ArrowRight className="ml-2 h-5 w-5" />}
+                    className="px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg"
+                    icon={<ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />}
                   >
                     Ir al Dashboard
                   </InteractiveButton>
@@ -266,8 +266,8 @@ export default function HomePage() {
                     href="/claim"
                     variant="glass"
                     size="lg"
-                    className="px-8 py-4 text-lg"
-                    icon={<Gift className="mr-2 h-5 w-5" />}
+                    className="px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg"
+                    icon={<Gift className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />}
                   >
                     Claim UBI Diario
                   </InteractiveButton>
@@ -277,15 +277,15 @@ export default function HomePage() {
                   <InteractiveButton 
                     variant="neural"
                     size="lg"
-                    className="px-8 py-4 text-lg"
-                    icon={<ArrowRight className="ml-2 h-5 w-5" />}
+                    className="px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg"
+                    icon={<ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />}
                   >
                     Comenzar Ahora
                   </InteractiveButton>
                   <InteractiveButton 
                     variant="glass"
                     size="lg"
-                    className="px-8 py-4 text-lg"
+                    className="px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg"
                   >
                     Ver Demo
                   </InteractiveButton>
@@ -294,21 +294,21 @@ export default function HomePage() {
             </motion.div>
             
             <motion.p 
-              className="text-sm text-white/60 mt-6 flex items-center justify-center lg:justify-start gap-4"
+              className="text-xs sm:text-sm text-white/60 mt-4 sm:mt-6 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-2 sm:gap-4"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.8, duration: 0.8 }}
             >
               <span className="flex items-center gap-1">
-                <CheckCircle className="w-4 h-4 text-green-500" />
+                <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 text-green-500" />
                 Sin ID requerido
               </span>
               <span className="flex items-center gap-1">
-                <CheckCircle className="w-4 h-4 text-green-500" />
+                <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 text-green-500" />
                 Gratis para siempre
               </span>
               <span className="flex items-center gap-1">
-                <CheckCircle className="w-4 h-4 text-green-500" />
+                <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 text-green-500" />
                 100% descentralizado
               </span>
             </motion.p>
@@ -319,38 +319,38 @@ export default function HomePage() {
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-            className="relative hidden lg:flex justify-center items-center"
+            className="relative hidden lg:flex justify-center items-center order-1 lg:order-2"
           >
-            <div className="relative w-[500px] h-[600px] rounded-3xl p-8 neural-gradient-animated flex flex-col justify-between shadow-2xl">
+            <div className="relative w-full max-w-[400px] xl:max-w-[500px] h-[500px] xl:h-[600px] rounded-3xl p-6 xl:p-8 neural-gradient-animated flex flex-col justify-between shadow-2xl">
               {/* UBI Claim Card */}
-              <GlassCard variant="neural" className="p-6 mb-6 flex-shrink-0" hover={false}>
-                <div className="flex items-center justify-between text-white/80 text-sm mb-2">
+              <GlassCard variant="neural" className="p-4 xl:p-6 mb-4 xl:mb-6 flex-shrink-0" hover={false}>
+                <div className="flex items-center justify-between text-white/80 text-xs xl:text-sm mb-2">
                   <span>UBI Disponible</span>
-                  <Gift className="w-5 h-5" />
+                  <Gift className="w-4 h-4 xl:w-5 xl:h-5" />
                 </div>
-                <p className="text-5xl font-bold text-white mb-4">50 G$</p>
+                <p className="text-3xl xl:text-5xl font-bold text-white mb-3 xl:mb-4">50 G$</p>
                 <InteractiveButton 
                   size="sm" 
                   variant="neural"
-                  className="w-full"
+                  className="w-full text-xs xl:text-sm"
                 >
                   Claim Ahora
                 </InteractiveButton>
               </GlassCard>
 
               {/* Tanda Preview */}
-              <GlassCard variant="glow" className="p-6 flex-grow mb-6" hover={false}>
-                <h3 className="text-xl font-semibold text-white mb-4">Tu Tanda Activa</h3>
-                <div className="space-y-3 text-white/80">
-                  <div className="flex justify-between">
+              <GlassCard variant="glow" className="p-4 xl:p-6 flex-grow mb-4 xl:mb-6" hover={false}>
+                <h3 className="text-lg xl:text-xl font-semibold text-white mb-3 xl:mb-4">Tu Tanda Activa</h3>
+                <div className="space-y-2 xl:space-y-3 text-white/80">
+                  <div className="flex justify-between text-sm xl:text-base">
                     <span>Monto mensual</span>
                     <span className="font-semibold">500 G$</span>
                   </div>
-                  <div className="flex justify-between">
+                  <div className="flex justify-between text-sm xl:text-base">
                     <span>Participantes</span>
                     <span className="font-semibold">8/10</span>
                   </div>
-                  <div className="h-3 bg-white/20 rounded-full overflow-hidden mt-3">
+                  <div className="h-2 xl:h-3 bg-white/20 rounded-full overflow-hidden mt-2 xl:mt-3">
                     <motion.div 
                       className="h-full bg-gradient-to-r from-blue-400 to-indigo-500"
                       initial={{ width: '0%' }}
@@ -358,18 +358,18 @@ export default function HomePage() {
                       transition={{ duration: 2, delay: 1 }}
                     />
                   </div>
-                  <p className="text-sm mt-3">Ronda 3 de 10 • Siguiente pago: 5 días</p>
+                  <p className="text-xs xl:text-sm mt-2 xl:mt-3">Ronda 3 de 10 • Siguiente pago: 5 días</p>
                 </div>
               </GlassCard>
 
               {/* Quick Stats */}
-              <div className="grid grid-cols-2 gap-4 flex-shrink-0">
-                <GlassCard className="p-4 text-center" hover={false}>
-                  <p className="text-2xl font-bold text-white">$4,000</p>
+              <div className="grid grid-cols-2 gap-3 xl:gap-4 flex-shrink-0">
+                <GlassCard className="p-3 xl:p-4 text-center" hover={false}>
+                  <p className="text-lg xl:text-2xl font-bold text-white">$4,000</p>
                   <p className="text-xs text-white/70">Ahorrado total</p>
                 </GlassCard>
-                <GlassCard className="p-4 text-center" hover={false}>
-                  <p className="text-2xl font-bold text-white">3</p>
+                <GlassCard className="p-3 xl:p-4 text-center" hover={false}>
+                  <p className="text-lg xl:text-2xl font-bold text-white">3</p>
                   <p className="text-xs text-white/70">Tandas activas</p>
                 </GlassCard>
               </div>
@@ -380,7 +380,7 @@ export default function HomePage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8, duration: 0.5 }}
-              className="absolute -top-4 left-1/4 bg-gradient-to-r from-purple-600 to-pink-600 text-white text-sm px-4 py-2 rounded-full shadow-lg rotate-3 neural-glow"
+              className="absolute -top-2 xl:-top-4 left-1/4 bg-gradient-to-r from-purple-600 to-pink-600 text-white text-xs xl:text-sm px-3 xl:px-4 py-1 xl:py-2 rounded-full shadow-lg rotate-3 neural-glow"
             >
               ✨ 100% Gratis
             </motion.div>
@@ -389,7 +389,7 @@ export default function HomePage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1, duration: 0.5 }}
-              className="absolute -bottom-4 right-1/4 bg-gradient-to-r from-blue-600 to-cyan-600 text-white text-sm px-4 py-2 rounded-full shadow-lg -rotate-6 neural-glow"
+              className="absolute -bottom-2 xl:-bottom-4 right-1/4 bg-gradient-to-r from-blue-600 to-cyan-600 text-white text-xs xl:text-sm px-3 xl:px-4 py-1 xl:py-2 rounded-full shadow-lg -rotate-6 neural-glow"
             >
               🔒 Super Seguro
             </motion.div>
@@ -398,14 +398,14 @@ export default function HomePage() {
       </section>
 
       {/* Features Section */}
-      <section id="how-it-works" className="relative z-10 py-20 md:py-32">
-        <div className="container mx-auto text-center">
+      <section id="how-it-works" className="relative z-10 py-12 sm:py-16 md:py-20 lg:py-32">
+        <div className="container mx-auto text-center px-3 sm:px-4">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-5xl font-bold text-gradient mb-4"
+            className="text-3xl sm:text-4xl md:text-5xl font-bold text-gradient mb-3 sm:mb-4"
           >
             Todo lo que necesitas
           </motion.h2>
@@ -415,12 +415,12 @@ export default function HomePage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-xl text-white/80 mb-16 max-w-2xl mx-auto"
+            className="text-lg sm:text-xl text-white/80 mb-8 sm:mb-12 md:mb-16 max-w-2xl mx-auto"
           >
             UBI, tandas y más. Todo en una sola app.
           </motion.p>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
             {features.map((feature, idx) => (
               <motion.div 
                 key={idx}
@@ -431,18 +431,18 @@ export default function HomePage() {
               >
                 <Link href={feature.href}>
                   <GlassCard 
-                    className="p-8 h-full flex flex-col items-center text-center neural cursor-pointer hover:scale-105 transition-transform" 
+                    className="p-4 sm:p-6 lg:p-8 h-full flex flex-col items-center text-center neural cursor-pointer hover:scale-105 transition-transform" 
                     variant="neural"
                   >
                     <motion.div 
-                      className={`p-4 rounded-2xl bg-gradient-to-r ${feature.color} mb-6`}
+                      className={`p-3 sm:p-4 rounded-2xl bg-gradient-to-r ${feature.color} mb-4 sm:mb-6`}
                       whileHover={{ scale: 1.1, rotate: 5 }}
                       transition={{ duration: 0.3 }}
                     >
-                      <feature.icon className="w-10 h-10 text-white" />
+                      <feature.icon className="w-6 h-6 sm:w-8 sm:h-8 lg:w-10 lg:h-10 text-white" />
                     </motion.div>
-                    <h3 className="text-2xl font-semibold text-white mb-3">{feature.title}</h3>
-                    <p className="text-white/80 text-lg">{feature.description}</p>
+                    <h3 className="text-lg sm:text-xl lg:text-2xl font-semibold text-white mb-2 sm:mb-3">{feature.title}</h3>
+                    <p className="text-white/80 text-sm sm:text-base lg:text-lg">{feature.description}</p>
                   </GlassCard>
                 </Link>
               </motion.div>
@@ -452,14 +452,14 @@ export default function HomePage() {
       </section>
 
       {/* Hackathon Tracks Section */}
-      <section id="hackathon-tracks" className="relative z-10 py-20 md:py-32">
-        <div className="container mx-auto text-center">
+      <section id="hackathon-tracks" className="relative z-10 py-12 sm:py-16 md:py-20 lg:py-32">
+        <div className="container mx-auto text-center px-3 sm:px-4">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-5xl font-bold text-gradient mb-4"
+            className="text-3xl sm:text-4xl md:text-5xl font-bold text-gradient mb-3 sm:mb-4"
           >
             🏆 RealFi Hackathon Tracks
           </motion.h2>
@@ -469,14 +469,14 @@ export default function HomePage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-xl text-white/80 mb-16 max-w-3xl mx-auto"
+            className="text-lg sm:text-xl text-white/80 mb-8 sm:mb-12 md:mb-16 max-w-3xl mx-auto"
           >
             LocalUBI México participa en TODOS los 11 tracks del hackathon. 
             <br />
             <span className="text-green-400 font-semibold">Cada track implementado con tecnología específica</span>
           </motion.p>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
             {hackathonTracks.map((track, idx) => (
               <motion.div 
                 key={idx}
@@ -487,13 +487,13 @@ export default function HomePage() {
               >
                 <Link href={track.href}>
                   <GlassCard 
-                    className="p-6 h-full flex flex-col items-center text-center neural cursor-pointer hover:scale-105 transition-transform" 
+                    className="p-4 sm:p-6 h-full flex flex-col items-center text-center neural cursor-pointer hover:scale-105 transition-transform" 
                     variant="neural"
                   >
-                    <div className="text-4xl mb-4">{track.icon}</div>
-                    <h3 className="text-lg font-semibold text-white mb-2">{track.title}</h3>
-                    <p className="text-white/80 text-sm mb-3">{track.description}</p>
-                    <div className="bg-gradient-to-r from-blue-500 to-cyan-500 text-white text-xs font-bold px-3 py-1 rounded-full">
+                    <div className="text-3xl sm:text-4xl mb-3 sm:mb-4">{track.icon}</div>
+                    <h3 className="text-base sm:text-lg font-semibold text-white mb-2">{track.title}</h3>
+                    <p className="text-white/80 text-xs sm:text-sm mb-3">{track.description}</p>
+                    <div className="bg-gradient-to-r from-blue-500 to-cyan-500 text-white text-xs font-bold px-2 sm:px-3 py-1 rounded-full text-center">
                       {track.implementation}
                     </div>
                   </GlassCard>
@@ -505,14 +505,14 @@ export default function HomePage() {
       </section>
 
       {/* Testimonials */}
-      <section id="testimonials" className="relative z-10 py-20 md:py-32">
-        <div className="container mx-auto text-center">
+      <section id="testimonials" className="relative z-10 py-12 sm:py-16 md:py-20 lg:py-32">
+        <div className="container mx-auto text-center px-3 sm:px-4">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-5xl font-bold text-gradient mb-4"
+            className="text-3xl sm:text-4xl md:text-5xl font-bold text-gradient mb-3 sm:mb-4"
           >
             Historias reales
           </motion.h2>
@@ -522,12 +522,12 @@ export default function HomePage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-xl text-white/80 mb-16 max-w-2xl mx-auto"
+            className="text-lg sm:text-xl text-white/80 mb-8 sm:mb-12 md:mb-16 max-w-2xl mx-auto"
           >
             Usuarios de todo México confían en LocalUBI
           </motion.p>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
             {testimonials.map((testimonial, idx) => (
               <motion.div 
                 key={idx}
@@ -536,24 +536,24 @@ export default function HomePage() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: idx * 0.15 }}
               >
-                <GlassCard className="p-8 h-full flex flex-col" variant="glow">
-                  <div className="flex items-center mb-6">
-                    <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center mr-4">
-                      <span className="text-white font-bold text-xl">
+                <GlassCard className="p-4 sm:p-6 lg:p-8 h-full flex flex-col" variant="glow">
+                  <div className="flex items-center mb-4 sm:mb-6">
+                    <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center mr-3 sm:mr-4">
+                      <span className="text-white font-bold text-lg sm:text-xl">
                         {testimonial.name.charAt(0)}
                       </span>
                     </div>
                     <div>
-                      <p className="font-semibold text-white text-lg">{testimonial.name}</p>
-                      <p className="text-sm text-white/70">{testimonial.role}</p>
+                      <p className="font-semibold text-white text-base sm:text-lg">{testimonial.name}</p>
+                      <p className="text-xs sm:text-sm text-white/70">{testimonial.role}</p>
                       <div className="flex items-center mt-1">
                         {[...Array(testimonial.rating)].map((_, i) => (
-                          <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
+                          <Star key={i} className="w-3 h-3 sm:w-4 sm:h-4 text-yellow-400 fill-current" />
                         ))}
                       </div>
                     </div>
                   </div>
-                  <p className="text-white/90 italic text-lg leading-relaxed">
+                  <p className="text-white/90 italic text-sm sm:text-base lg:text-lg leading-relaxed">
                     &ldquo;{testimonial.content}&rdquo;
                   </p>
                 </GlassCard>
@@ -564,14 +564,14 @@ export default function HomePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="relative z-10 py-20 md:py-32">
-        <div className="container mx-auto text-center">
+      <section className="relative z-10 py-12 sm:py-16 md:py-20 lg:py-32">
+        <div className="container mx-auto text-center px-3 sm:px-4">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-6xl font-bold text-gradient mb-6"
+            className="text-4xl sm:text-5xl md:text-6xl font-bold text-gradient mb-4 sm:mb-6"
           >
             ¿Listo para empezar?
           </motion.h2>
@@ -581,7 +581,7 @@ export default function HomePage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-2xl text-white/90 mb-10 max-w-3xl mx-auto"
+            className="text-lg sm:text-xl md:text-2xl text-white/90 mb-6 sm:mb-8 md:mb-10 max-w-3xl mx-auto"
           >
             Únete a miles de mexicanos que ya ahorran con LocalUBI
           </motion.p>
@@ -595,8 +595,8 @@ export default function HomePage() {
             <InteractiveButton 
               size="xl" 
               variant="neural"
-              className="px-12 py-6 text-2xl shadow-2xl"
-              icon={<ArrowRight className="ml-3 h-6 w-6" />}
+              className="px-8 sm:px-10 md:px-12 py-4 sm:py-5 md:py-6 text-lg sm:text-xl md:text-2xl shadow-2xl"
+              icon={<ArrowRight className="ml-2 sm:ml-3 h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6" />}
             >
               Crear Cuenta Gratis
             </InteractiveButton>
@@ -607,7 +607,7 @@ export default function HomePage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-lg text-white/70 mt-8"
+            className="text-sm sm:text-base md:text-lg text-white/70 mt-6 sm:mt-8"
           >
             Sin tarjeta de crédito • Sin ID • Sin complicaciones
           </motion.p>
