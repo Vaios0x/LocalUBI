@@ -49,39 +49,41 @@ export function PWAInstallBanner() {
         animate={{ y: 0, opacity: 1 }}
         exit={{ y: -100, opacity: 0 }}
         transition={{ duration: 0.3, ease: "easeOut" }}
-        className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-green-500/90 to-emerald-600/90 backdrop-blur-md border-b border-white/20"
+        className="fixed top-0 left-0 right-0 z-40 bg-gradient-to-r from-green-500/90 to-emerald-600/90 backdrop-blur-md border-b border-white/20"
+        style={{ '--banner-height': '60px' } as React.CSSProperties}
       >
-        <div className="container mx-auto px-4 py-3">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <div className="flex items-center gap-2">
-                <Smartphone className="w-5 h-5 text-white" />
-                <Wifi className="w-4 h-4 text-white/80" />
+        <div className="container mx-auto px-3 sm:px-4 py-2 sm:py-3">
+          <div className="flex items-center justify-between gap-2 sm:gap-3">
+            <div className="flex items-center gap-2 sm:gap-3 min-w-0 flex-1">
+              <div className="flex items-center gap-1 sm:gap-2 flex-shrink-0">
+                <Smartphone className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+                <Wifi className="w-3 h-3 sm:w-4 sm:h-4 text-white/80" />
               </div>
-              <div>
-                <p className="text-white font-semibold text-sm">
+              <div className="min-w-0 flex-1">
+                <p className="text-white font-semibold text-xs sm:text-sm truncate">
                   Instala LocalUBI en tu dispositivo
                 </p>
-                <p className="text-white/80 text-xs">
+                <p className="text-white/80 text-xs hidden sm:block">
                   Acceso rápido, notificaciones y funciona offline
                 </p>
               </div>
             </div>
             
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-1 sm:gap-2 flex-shrink-0">
               <InteractiveButton
                 onClick={handleInstall}
                 size="sm"
                 variant="glass"
-                className="text-xs px-3 py-1"
+                className="text-xs px-2 sm:px-3 py-1"
                 icon={<Download className="w-3 h-3" />}
               >
-                Instalar
+                <span className="hidden sm:inline">Instalar</span>
+                <span className="sm:hidden">+</span>
               </InteractiveButton>
               
               <button
                 onClick={handleDismiss}
-                className="p-1 text-white/60 hover:text-white transition-colors"
+                className="p-1 text-white/60 hover:text-white transition-colors rounded"
                 aria-label="Cerrar banner"
               >
                 <X className="w-4 h-4" />

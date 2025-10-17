@@ -178,7 +178,7 @@ export default function HomePage() {
       <Header />
 
       {/* Hero Section */}
-      <section className="relative z-10 flex items-center justify-center min-h-screen px-3 sm:px-4 py-12 sm:py-16 md:py-24 pt-20 sm:pt-24">
+      <section className="relative z-10 flex items-center justify-center min-h-screen px-3 sm:px-4 py-12 sm:py-16 md:py-24 pt-24 sm:pt-28">
         <div className="container mx-auto grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Left: Content */}
           <motion.div 
